@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Photo Gallery | St. Andrews School</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-solid border-[#e7edf3] dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_535)">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_535"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight tracking-tight">St. Andrews</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">News</a>
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Admissions</a>
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Resources</a>
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Academics</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<label class="hidden lg:flex flex-col min-w-48 !h-10">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#4c739a] flex border-none bg-slate-200 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg" data-icon="search">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-200 dark:bg-slate-800 text-[#0d141b] dark:text-white focus:ring-0 h-full placeholder:text-[#4c739a] px-3 rounded-r-lg text-sm font-normal" placeholder="Search gallery..." value=""/>
+</div>
+</label>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="Student profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAswtOSY1hx-Sq-vYhO5d9C4sDTcG-vqrRugpGTEgCsK0uJSr8NJCl94NFPagqYKvVkAlKGvAkpRw8r6_sn7pxt3Av2wMcsSRrDmKMKl8ImYBdmnZSVSX53QgH3bLJTwmL5MxjG5L3-w0oILsH6L-kGjDGgEmJaV63gocFZAY1eK3ulbSsG96g2qYPscan9fnh7nwVq3syVjCjSs139wlklkuhkth5bR2izOyszaPBxUKIMFRMPo8juhC0O2tLPR1p7PTKFEMnTuODU");'></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-6 py-8">
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="relative overflow-hidden rounded-xl">
+<div class="flex min-h-[360px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-center justify-center p-8 text-center" data-alt="Modern high school campus aerial view" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0h6v8lcEdmMIlB__Ku-mQoO-55cE0jeE_tsuQtwbnO61As8w__AW7qdZnlunq8OiVL0dq2IJY7RYblP0jwIT_praobLop9-9DNMBNmSGiVMC6qFDAtkLBsdFsBT3tS7sf04GJ4YlrG_CJdJVXqwsiSzjsTeLomYyIgu_ASD4UqvpG9_KGckJAZpwdPqw4JhgYImPHGpjg0UpKKc9ULSKuwpoOah_U5cPGfW3zDjsvjixH-t-mMutFMJ_G2Qi_WVqCELTGHKV8HFhu");'>
+<div class="max-w-2xl space-y-4">
+<h1 class="text-white text-4xl md:text-6xl font-black tracking-tight font-display">
+                            Campus Life Gallery
+                        </h1>
+<p class="text-white/90 text-lg md:text-xl font-normal leading-relaxed">
+                            A window into the vibrant community, academic excellence, and diverse opportunities at St. Andrews School.
+                        </p>
+</div>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold shadow-lg hover:bg-primary/90 transition-all">
+<span class="truncate">View Virtual Tour</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Filter Controls -->
+<section class="mb-8 sticky top-20 z-40 bg-background-light/95 dark:bg-background-dark/95 py-4 backdrop-blur-sm">
+<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+<div class="flex gap-2 overflow-x-auto no-scrollbar pr-4">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-6 font-semibold text-sm">
+                        All Photos
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 text-[#0d141b] dark:text-slate-300 px-6 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors font-medium text-sm">
+                        Events
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 text-[#0d141b] dark:text-slate-300 px-6 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors font-medium text-sm">
+                        Sports
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 text-[#0d141b] dark:text-slate-300 px-6 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors font-medium text-sm">
+                        Campus
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 text-[#0d141b] dark:text-slate-300 px-6 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors font-medium text-sm">
+                        Classrooms
+                    </button>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-[#4c739a] dark:text-slate-400">
+<span class="text-sm">Sort by:</span>
+<select class="bg-transparent border-none text-sm font-bold text-[#0d141b] dark:text-white focus:ring-0 cursor-pointer">
+<option>Newest First</option>
+<option>Oldest First</option>
+<option>Most Popular</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Image Grid -->
+<section class="mb-12">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+<!-- Gallery Item 1 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Students celebrating at graduation ceremony" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqSFJ3TfYbmuWNz2YIgo2QA-BXE4nO37-Qv7UiQ9fvjh6sK-HReW6wAD30XRUOke5ZfFoXtXVPp-J4Qv-dEIAg59ds0n3u5gxV-vipXpPkL_5YA0j3ElTyeI-mwrDlYcqDMabxMW4lScrgoid1sXryHKXB0bpKDg5OcBvs7Q1TopPy4kINLls06ZjVrX2Kuo4EFDp8hz24SLpziHtGBv6f_977aq3mnN-6HbCRqkFla-Tc6gIiW9ZIS0tFKRqh9GAuMmNnugayrYog");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Events</span>
+<h3 class="text-white text-lg font-bold">Graduation Ceremony 2023</h3>
+</div>
+</div>
+<!-- Gallery Item 2 (Video) -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="High school basketball team game" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDk_xGqmbcwnXEGOOhVGxjFf7crXtlFgxO4rFKYuR14qlYhuz4hmafLIxycz9_TwmgMIRJrgFLwRuaolB3_d4n44XSHt3q5nKzNnJnM4NhXFFBvFUOZNc8hAYnJDp-GkMhBMyKQrkCEdoDCxXoqG0SsFbhxhpNUPdWTeNpvWZndKV8Z0W0gDUV7DGXAL3-733te6UsK9hFo3NBcqUNDISgB8ohaJUQ83hTG2YFXSqjF2LMipUUOor65WlJvdrv1zYSnuk9UeQQERVQT");'></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined fill-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Sports</span>
+<h3 class="text-white text-lg font-bold">Championship Highlights</h3>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern science laboratory equipment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDayIe6UyhMz1mbKZbZoAEGacK1MFZINpUCO29ELy8g6NyQENLKnUrade2ZWzgSc4BQSLYYmWNgcdFetvkFSW8lBMd8CROZyf_79ow50sZfl-zQBSj5FYpAdyneeOWC9wBCwmbkZUETLw6CiFlTEaxPjJyZxi2L8oYtNeKLNiu8LBlgZ2lirkW5rca5d_CgEAEGE3XnwOAw9cS4r3WCQ_VPjhOdoTgHM2LpLBMMlDEN5kPWJJAXqhtJAmb8Gs7mbb-HW_QJY2cD_ipQ");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Classrooms</span>
+<h3 class="text-white text-lg font-bold">New STEM Innovation Lab</h3>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Student art exhibition gallery" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnln6hvP7aLtJCOV2TQ2qBMYjw8IDTP5QJnIY7hob465OyCsn1tz8Qb0LQ2xOdzNvNhF-l5XVDzAyE2tBakRbfTodjwek-jS2RRhdJUHGZ_LZ-UNVgHBe1NoZhUP2G5PcYPiC_uBbbkffEqw6iFbAnTvCwvUtnUPJL_puWxdG3tv9t2VeIflTfhzFKiM4EUC4rewweUTyTp7dVNi8GmY9Vxk8v96h_61u-s6ZQAmiAJU0zBxT_GqkckoBXDS9WJGk4dnBBxh2H0-sH");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Events</span>
+<h3 class="text-white text-lg font-bold">Annual Spring Art Showcase</h3>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="University library interior study space" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZJ6rfpfAaoz-PJUNsaQY_3uUFRp4JtmKVUmaTYo19F5Z-Lo3-deMSklykI4aFZAC1zCbJB41HF0btyzT1OnXmP_6-XNDqu7OLJywTON0_8z8J9TQqClCH-bDzDU6ifGKfaJ5lEIZhen4ODEFaNAwim1rbXNMqd55ip1hpEJr1vXqC2vqnL5UUnsN79YZFgV-iHIXGliQS6GwLbrRXoc4bHkF994FI1h8rV2A5hUAC1Z350BRv8dFY1QKICQAJeuqYHIeFbCBwO8I9");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Campus</span>
+<h3 class="text-white text-lg font-bold">Main Research Library</h3>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Athletes on a running track" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIxShj17K5pYTiok4FUdFCPgTJVs7iVdP4FR2P3WtI8NAoLRowsxZM_ApnP01phcJyRUoXfYlEMhyxLTC931xP-WRqfAGPk-7O_scJZLnaFRsK_2NR9j_O6j661be33fnUl9BoEy8rSjwo0zhq3DJrIIKIXOIDTN9_V3Ia73m4swZfvnT63rYnJKmKwm0i9YbQQAKIv-cKVgBxe0T4u8PzzzivpB_tLXSMKbA0UdqO3tqF6df_jElX7TGEga2VfjJeJ4wb8PxSDt6b");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Sports</span>
+<h3 class="text-white text-lg font-bold">Inter-School Track Meet</h3>
+</div>
+</div>
+<!-- Gallery Item 7 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Morning assembly in school auditorium" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBDDuu21YhMDb6PaSumnfukHWCoylVFHfWqVKWlUUMQsiFuvYaxQkSpCTvLmgXRhz2T_g9rVXtl3VUYV666rof7bkoFKaRU6aRCvjjzcrbhwLDCpzLUq3mrNMATN98tHBLIUkUJJdOMtn9zkeGGZ0OBSlqjAsuOtbW9tckWGIGkZm02-c5mr4--aRJ_CW91hXxFeNiP6s5fQ3IrDlooLGikLuMOKL46Y9WXpQE_DYfXGEp8X4y2--UjawU_wXI6ItooTv1NEUxOPO-1");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Events</span>
+<h3 class="text-white text-lg font-bold">Weekly Morning Assembly</h3>
+</div>
+</div>
+<!-- Gallery Item 8 -->
+<div class="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Students learning with digital tablets" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKv6i8BwqPDJOwxbSi-rDyB6tHoFAQYRTFkkvfg592Vukta-39buYbJzXpRHO_Hup2-uFxlJsiByj9MUYtO61bJpwVnaMSz0IZfErR5rCwBY6XAx2ewIgiPYmvMVbKX6t7pm5tbT6ihWqiFGcCeGhrJ4tNyLVPo5phptuM22-r0EoJbYNTQPlLOXI6FzFTuZsHM2GctImvn3fj3Bt-zQm7GWAte2pzem8nPazWyYLqVplDRp2dFdmB7VTgWcoEvb0VkD7cjqsZxm1J");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+<span class="text-white/70 text-xs font-medium uppercase tracking-wider mb-1">Classrooms</span>
+<h3 class="text-white text-lg font-bold">Interactive Learning Sessions</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Load More Section -->
+<section class="flex flex-col items-center gap-4 py-8">
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 bg-slate-200 dark:bg-slate-800 text-[#0d141b] dark:text-white text-base font-bold shadow-sm hover:bg-slate-300 dark:hover:bg-slate-700 transition-all group">
+<span class="truncate">Load More Photos</span>
+<span class="material-symbols-outlined ml-2 group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm">Showing 8 of 254 photos</p>
+</section>
+</main>
+<!-- Simple Lightbox Mockup (Hidden by default, shown for structure) -->
+<div class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center hidden">
+<button class="absolute top-6 right-6 text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<button class="absolute left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-5xl">chevron_left</span>
+</button>
+<div class="max-w-[90vw] max-h-[80vh] flex flex-col items-center gap-4">
+<img alt="Full size preview" class="max-h-full rounded-lg shadow-2xl border border-white/10" data-alt="Graduation ceremony full size view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkydg2ZcKCDioWfpS_SCTF2T_6zwVZRuYzY7K-pUPqdIJK6C0ktyqBUnNYq26hfs9LqcSWKWz2_ey84l1FjPhIC8nnbtk3yCJoIPjVzQoqevAcRethmgu23RM_a6z0M9ApVgoQSBzSSRFXbIUU36PYk02Ezwe5OpHpdJtAkiW6nYLjiFLzRotG0Afrm8WXueBkAQi8la7De-NQjRIc6n9ycCxQEpU5w5oAtT87MpxzOYXJVC_ZZKTVC3HVz71mjsZcd-eMkMyw1oiu"/>
+<div class="text-center">
+<h4 class="text-white text-xl font-bold">Graduation Ceremony 2023</h4>
+<p class="text-white/60 text-sm">June 15, 2023 • Category: Events</p>
+</div>
+</div>
+<button class="absolute right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-5xl">chevron_right</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-slate-200 dark:bg-slate-900/50 py-12 mt-12">
+<div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3 opacity-60">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="font-bold">St. Andrews School</span>
+</div>
+<p class="text-[#4c739a] dark:text-slate-500 text-sm">
+                © 2024 St. Andrews School. All visual assets are property of the institution.
+            </p>
+<div class="flex gap-6">
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">camera_indoor</span>
+</a>
+<a class="text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
