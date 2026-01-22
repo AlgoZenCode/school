@@ -33,212 +33,287 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        @media (max-width: 1024px) {
+            .sidebar-active {
+                transform: translateX(0) !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
-<!-- Top Navigation Bar -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-3">
-<div class="max-w-[1440px] mx-auto flex items-center justify-between gap-8">
-<div class="flex items-center gap-6">
-<div class="flex items-center gap-3">
-<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<!-- Sidebar -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
+<aside id="sidebar" class="fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-background-dark border-r border-[#e7edf3] dark:border-slate-800 transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:w-64 transition-transform duration-300 overflow-y-auto">
+<div class="p-6">
+<div class="flex items-center gap-3 text-primary mb-8">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h3 class="text-[#0d141b] dark:text-white font-bold">Menu</h3>
+<button id="sidebar-close" class="ml-auto lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
 <span class="material-symbols-outlined">school</span>
+<span>Academics</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span>About Us</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span>Admissions</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span>Achievement</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Faculty</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span>Facilities</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span>Gallery</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notice Board</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span>Contact Us</span>
+</a>
+</nav>
 </div>
-<h1 class="text-xl font-bold tracking-tight">St. Mary's School</h1>
+</aside>
+
+<div class="lg:ml-64">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-6 lg:px-20 py-3">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between gap-4 md:gap-8">
+<div class="flex items-center gap-3 md:gap-6">
+<button id="sidebar-toggle" class="lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<div class="flex items-center gap-2 md:gap-3">
+<div class="size-8 md:size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="size-5 md:size-6">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
 </div>
-<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 py-1.5 w-64">
-<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<h1 class="text-base md:text-xl font-bold tracking-tight whitespace-nowrap">St. Mary's School</h1>
+</div>
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 py-1.5 w-40 lg:w-64">
+<span class="material-symbols-outlined text-slate-400 text-lg md:text-xl">search</span>
 <input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-slate-500" placeholder="Search notices..." type="text"/>
 </div>
 </div>
-<nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+<nav class="hidden lg:flex items-center gap-6 md:gap-8 text-sm font-medium">
 <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Dashboard</a>
 <a class="text-primary border-b-2 border-primary pb-1" href="#">Notice Board</a>
 <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Homework</a>
 <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Events</a>
 <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Resources</a>
 </nav>
-<div class="flex items-center gap-3">
-<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+<div class="flex items-center gap-2 md:gap-3">
+<button class="p-1 md:p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
+<span class="material-symbols-outlined text-lg md:text-xl">notifications</span>
+<span class="absolute top-1 md:top-2 right-1 md:right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
 </button>
-<div class="size-9 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden border border-primary/30">
+<div class="size-7 md:size-9 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden border border-primary/30">
 <img class="size-full object-cover" data-alt="Student profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPGUtZuf6vyMGOEBLpAqTC4jnqRyY7L8zQ8I2P80kf5Wf4fsCCpZ4uJJXkN2pQlcpUMHc1O-ADO53Kdc-F-AASUB5fz4fEFVVY_kj6GiKuPplTWuFao1eikvIJmJ-JtoejJb89vunHIQzCuFMK_Ixd1rxwii7CDD8K6G_k8HeVRLYUVIBO8i2ty2DSObohoPriPqdU_sScsFrgBP95fw7VmIZ7KcWEe2nbaz2ipumckr-Mq6GzJcTHOPumcI7GwO4mmDGo8lSGBVwY"/>
 </div>
 </div>
 </div>
 </header>
-<main class="max-w-[1440px] mx-auto px-6 lg:px-20 py-8">
+
+<main class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-20 py-4 md:py-8">
 <!-- Breadcrumbs -->
-<nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+<nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-4 md:mb-6">
 <a class="hover:text-primary" href="#">Home</a>
 <span class="material-symbols-outlined text-xs">chevron_right</span>
 <span class="text-slate-900 dark:text-slate-100 font-medium">Digital Notice Board</span>
 </nav>
 <!-- Page Heading -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-6 md:mb-8">
 <div class="max-w-2xl">
-<h2 class="text-4xl font-black tracking-tight mb-2">Notice Board</h2>
-<p class="text-slate-500 dark:text-slate-400">Stay updated with the latest circulars, academic schedules, and school events.</p>
+<h2 class="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight mb-1 md:mb-2">Notice Board</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm md:text-base">Stay updated with the latest circulars, academic schedules, and school events.</p>
 </div>
-<div class="flex gap-3">
-<button class="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">download_for_offline</span>
+<div class="flex gap-2 md:gap-3 self-start md:self-end">
+<button class="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-all shadow-sm text-sm md:text-base whitespace-nowrap">
+<span class="material-symbols-outlined text-lg md:text-xl">download_for_offline</span>
                     Archive 2023-24
                 </button>
 </div>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
 <!-- Left Column: Notices & Filters -->
-<div class="lg:col-span-8 space-y-6">
+<div class="lg:col-span-8 space-y-4 md:space-y-6">
 <!-- Filters/Tabs -->
 <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-<div class="flex border-b border-slate-200 dark:border-slate-800">
-<button class="px-6 py-4 text-sm font-bold border-b-2 border-primary text-primary">All Notices</button>
-<button class="px-6 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary">Academics</button>
-<button class="px-6 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary">Sports</button>
-<button class="px-6 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary">Events</button>
-<button class="px-6 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary">Admin</button>
+<div class="flex border-b border-slate-200 dark:border-slate-800 overflow-x-auto">
+<button class="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-bold border-b-2 border-primary text-primary whitespace-nowrap">All Notices</button>
+<button class="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">Academics</button>
+<button class="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">Sports</button>
+<button class="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">Events</button>
+<button class="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">Admin</button>
 </div>
-<div class="p-3 flex flex-wrap gap-2 items-center bg-slate-50/50 dark:bg-slate-800/50">
-<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium">
-                            Sort by: Newest <span class="material-symbols-outlined text-base">expand_more</span>
+<div class="p-2 md:p-3 flex flex-wrap gap-1 md:gap-2 items-center bg-slate-50/50 dark:bg-slate-800/50">
+<button class="flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium whitespace-nowrap">
+                            Sort by: Newest <span class="material-symbols-outlined text-sm md:text-base">expand_more</span>
 </button>
-<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium">
-                            Category: All <span class="material-symbols-outlined text-base">expand_more</span>
+<button class="flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium whitespace-nowrap">
+                            Category: All <span class="material-symbols-outlined text-sm md:text-base">expand_more</span>
 </button>
-<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium">
-                            Month: October <span class="material-symbols-outlined text-base">expand_more</span>
+<button class="flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium whitespace-nowrap">
+                            Month: October <span class="material-symbols-outlined text-sm md:text-base">expand_more</span>
 </button>
 </div>
 </div>
 <!-- Notices List -->
-<div class="space-y-4">
+<div class="space-y-3 md:space-y-4">
 <!-- Notice Card 1 -->
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
-<div class="flex justify-between items-start mb-4">
-<div class="flex items-center gap-3">
-<div class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-<span class="material-symbols-outlined">description</span>
+<div class="bg-white dark:bg-slate-900 p-3 md:p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3 md:mb-4">
+<div class="flex items-center gap-2 md:gap-3">
+<div class="size-10 md:size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg md:text-xl">description</span>
 </div>
-<div>
-<h3 class="font-bold text-lg">Winter Vacation Schedule 2024</h3>
-<div class="flex items-center gap-3 mt-1">
+<div class="min-w-0">
+<h3 class="font-bold text-base md:text-lg truncate">Winter Vacation Schedule 2024</h3>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1">
 <span class="text-xs text-slate-500 flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 24, 2024
+<span class="material-symbols-outlined text-xs md:text-sm">calendar_today</span> Oct 24, 2024
                                         </span>
-<span class="px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-[10px] font-bold uppercase">Urgent</span>
+<span class="px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-[10px] font-bold uppercase w-fit">Urgent</span>
 </div>
 </div>
 </div>
-<button class="p-2 text-slate-400 hover:text-primary">
-<span class="material-symbols-outlined">more_vert</span>
+<button class="p-1 md:p-2 text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined text-lg md:text-xl">more_vert</span>
 </button>
 </div>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+<p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                             This circular provides detailed information regarding the upcoming winter break, including the last working day, reopening dates, and assignment deadlines for all classes from Grade 1 to 12.
                         </p>
-<div class="flex items-center justify-between">
-<div class="flex gap-2">
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium border border-slate-200 dark:border-slate-700">
-<span class="material-symbols-outlined text-red-500 text-base">picture_as_pdf</span>
-                                    vacation_schedule.pdf
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 md:gap-4">
+<div class="flex flex-wrap gap-1 md:gap-2">
+<div class="flex items-center gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-red-500 text-sm md:text-base">picture_as_pdf</span>
+                                    <span class="truncate max-w-[120px] md:max-w-none">vacation_schedule.pdf</span>
                                 </div>
 </div>
-<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-<span class="material-symbols-outlined text-lg">download</span>
+<button class="text-primary text-xs md:text-sm font-bold flex items-center gap-1 hover:underline self-start sm:self-center">
+<span class="material-symbols-outlined text-base md:text-lg">download</span>
                                 Download PDF
                             </button>
+</div>
 </div>
 </div>
 <!-- Notice Card 2 -->
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
-<div class="flex justify-between items-start mb-4">
-<div class="flex items-center gap-3">
-<div class="size-12 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl">trophy</span>
+<div class="bg-white dark:bg-slate-900 p-3 md:p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3 md:mb-4">
+<div class="flex items-center gap-2 md:gap-3">
+<div class="size-10 md:size-12 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-lg md:text-xl">trophy</span>
 </div>
-<div>
-<h3 class="font-bold text-lg">Annual Sports Meet Participation Form</h3>
-<div class="flex items-center gap-3 mt-1">
+<div class="min-w-0">
+<h3 class="font-bold text-base md:text-lg truncate">Annual Sports Meet Participation Form</h3>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1">
 <span class="text-xs text-slate-500 flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 22, 2024
+<span class="material-symbols-outlined text-xs md:text-sm">calendar_today</span> Oct 22, 2024
                                         </span>
-<span class="px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase">Sports</span>
+<span class="px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase w-fit">Sports</span>
 </div>
 </div>
 </div>
 </div>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+<p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                             All students interested in participating in the Annual Sports Meet are requested to fill out the form below. Trials for Athletics and Team Games will commence from next Monday.
                         </p>
-<div class="flex items-center justify-between">
-<div class="flex gap-2">
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium border border-slate-200 dark:border-slate-700">
-<span class="material-symbols-outlined text-red-500 text-base">picture_as_pdf</span>
-                                    sports_form_2024.pdf
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 md:gap-4">
+<div class="flex flex-wrap gap-1 md:gap-2">
+<div class="flex items-center gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-red-500 text-sm md:text-base">picture_as_pdf</span>
+                                    <span class="truncate max-w-[120px] md:max-w-none">sports_form_2024.pdf</span>
                                 </div>
 </div>
-<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-<span class="material-symbols-outlined text-lg">download</span>
+<button class="text-primary text-xs md:text-sm font-bold flex items-center gap-1 hover:underline self-start sm:self-center">
+<span class="material-symbols-outlined text-base md:text-lg">download</span>
                                 Download PDF
                             </button>
+</div>
 </div>
 </div>
 <!-- Notice Card 3 -->
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
-<div class="flex justify-between items-start mb-4">
-<div class="flex items-center gap-3">
-<div class="size-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl">menu_book</span>
+<div class="bg-white dark:bg-slate-900 p-3 md:p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3 md:mb-4">
+<div class="flex items-center gap-2 md:gap-3">
+<div class="size-10 md:size-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-lg md:text-xl">menu_book</span>
 </div>
-<div>
-<h3 class="font-bold text-lg">Half Yearly Examination Results - Grade X</h3>
-<div class="flex items-center gap-3 mt-1">
+<div class="min-w-0">
+<h3 class="font-bold text-base md:text-lg truncate">Half Yearly Examination Results - Grade X</h3>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1">
 <span class="text-xs text-slate-500 flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 20, 2024
+<span class="material-symbols-outlined text-xs md:text-sm">calendar_today</span> Oct 20, 2024
                                         </span>
-<span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase">Academics</span>
+<span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase w-fit">Academics</span>
 </div>
 </div>
 </div>
 </div>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+<p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                             The results for the Grade X Half Yearly examinations have been released. Parents are requested to collect the physical report cards during the PTM scheduled for this Saturday.
                         </p>
-<div class="flex items-center justify-between">
-<div class="flex gap-2">
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium border border-slate-200 dark:border-slate-700">
-<span class="material-symbols-outlined text-red-500 text-base">picture_as_pdf</span>
-                                    result_analysis.pdf
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 md:gap-4">
+<div class="flex flex-wrap gap-1 md:gap-2">
+<div class="flex items-center gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-red-500 text-sm md:text-base">picture_as_pdf</span>
+                                    <span class="truncate max-w-[120px] md:max-w-none">result_analysis.pdf</span>
                                 </div>
 </div>
-<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-<span class="material-symbols-outlined text-lg">download</span>
+<button class="text-primary text-xs md:text-sm font-bold flex items-center gap-1 hover:underline self-start sm:self-center">
+<span class="material-symbols-outlined text-base md:text-lg">download</span>
                                 Download PDF
                             </button>
+</div>
 </div>
 </div>
 </div>
 <!-- Load More Button -->
-<button class="w-full py-3 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<button class="w-full py-2 md:py-3 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-sm md:text-base">
                     Load Older Notices
                 </button>
 </div>
 <!-- Right Column: Calendar & Sidebar -->
-<div class="lg:col-span-4 space-y-6">
+<div class="lg:col-span-4 space-y-4 md:space-y-6">
 <!-- Calendar View -->
 <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-<div class="p-4 flex items-center justify-between bg-primary text-white">
-<span class="font-bold">October 2024</span>
-<div class="flex gap-2">
-<button class="hover:bg-white/20 p-1 rounded"><span class="material-symbols-outlined">chevron_left</span></button>
-<button class="hover:bg-white/20 p-1 rounded"><span class="material-symbols-outlined">chevron_right</span></button>
+<div class="p-3 md:p-4 flex items-center justify-between bg-primary text-white">
+<span class="font-bold text-sm md:text-base">October 2024</span>
+<div class="flex gap-1 md:gap-2">
+<button class="hover:bg-white/20 p-0.5 md:p-1 rounded"><span class="material-symbols-outlined text-base md:text-lg">chevron_left</span></button>
+<button class="hover:bg-white/20 p-0.5 md:p-1 rounded"><span class="material-symbols-outlined text-base md:text-lg">chevron_right</span></button>
 </div>
 </div>
-<div class="p-4">
-<div class="grid grid-cols-7 gap-1 text-center mb-2">
+<div class="p-2 md:p-4">
+<div class="grid grid-cols-7 gap-0.5 md:gap-1 text-center mb-1 md:mb-2">
 <div class="text-[10px] font-bold text-slate-400">S</div>
 <div class="text-[10px] font-bold text-slate-400">M</div>
 <div class="text-[10px] font-bold text-slate-400">T</div>
@@ -247,55 +322,54 @@
 <div class="text-[10px] font-bold text-slate-400">F</div>
 <div class="text-[10px] font-bold text-slate-400">S</div>
 </div>
-<div class="grid grid-cols-7 gap-1 text-center">
+<div class="grid grid-cols-7 gap-0.5 md:gap-1 text-center">
 <!-- Simplified calendar grid for illustration -->
-<div class="py-2 text-xs text-slate-300">29</div>
-<div class="py-2 text-xs text-slate-300">30</div>
-<div class="py-2 text-xs">1</div>
-<div class="py-2 text-xs">2</div>
-<div class="py-2 text-xs">3</div>
-<div class="py-2 text-xs bg-red-50 text-red-500 rounded-md font-bold">4</div>
-<div class="py-2 text-xs">5</div>
-<div class="py-2 text-xs">6</div>
-<div class="py-2 text-xs">7</div>
-<div class="py-2 text-xs">8</div>
-<div class="py-2 text-xs">9</div>
-<div class="py-2 text-xs">10</div>
-<div class="py-2 text-xs">11</div>
-<div class="py-2 text-xs bg-primary/10 text-primary rounded-md font-bold">12</div>
-<div class="py-2 text-xs">13</div>
-<div class="py-2 text-xs">14</div>
-<div class="py-2 text-xs">15</div>
-<div class="py-2 text-xs font-bold text-primary ring-1 ring-primary rounded-md">16</div>
-<div class="py-2 text-xs">17</div>
-<div class="py-2 text-xs">18</div>
-<div class="py-2 text-xs">19</div>
-<div class="py-2 text-xs">20</div>
-<div class="py-2 text-xs">21</div>
-<div class="py-2 text-xs bg-primary/10 text-primary rounded-md font-bold">22</div>
-<div class="py-2 text-xs">23</div>
-<div class="py-2 text-xs bg-primary/10 text-primary rounded-md font-bold">24</div>
-<div class="py-2 text-xs">25</div>
-<div class="py-2 text-xs">26</div>
-<div class="py-2 text-xs">27</div>
-<div class="py-2 text-xs">28</div>
-<div class="py-2 text-xs">29</div>
-<div class="py-2 text-xs">30</div>
-<div class="py-2 text-xs">31</div>
-<div class="py-2 text-xs text-slate-300">1</div>
-<div class="py-2 text-xs text-slate-300">2</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs text-slate-300">29</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs text-slate-300">30</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">1</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">2</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">3</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs bg-red-50 text-red-500 rounded-md font-bold">4</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">5</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">6</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">7</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">8</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">9</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">10</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">11</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs bg-primary/10 text-primary rounded-md font-bold">12</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">13</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">14</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">15</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs font-bold text-primary ring-1 ring-primary rounded-md">16</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">17</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">18</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">19</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">20</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs bg-primary/10 text-primary rounded-md font-bold">22</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">23</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs bg-primary/10 text-primary rounded-md font-bold">24</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">25</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">26</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">27</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">28</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">29</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">30</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs">31</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs text-slate-300">1</div>
+<div class="py-1 md:py-2 text-[10px] md:text-xs text-slate-300">2</div>
 </div>
 </div>
-<div class="p-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+<div class="p-3 md:p-4 border-t border-slate-100 dark:border-slate-800 space-y-2 md:space-y-3">
 <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Upcoming Events</p>
-<div class="flex gap-3">
+<div class="flex gap-2 md:gap-3">
 <div class="w-1 bg-red-500 rounded-full"></div>
 <div>
 <p class="text-xs font-bold">Dussehra Holiday</p>
 <p class="text-[10px] text-slate-500">Oct 24 • School Closed</p>
 </div>
 </div>
-<div class="flex gap-3">
+<div class="flex gap-2 md:gap-3">
 <div class="w-1 bg-primary rounded-full"></div>
 <div>
 <p class="text-xs font-bold">Parent Teacher Meeting</p>
@@ -305,54 +379,54 @@
 </div>
 </div>
 <!-- Holiday Homework -->
-<div class="bg-primary/5 border border-primary/20 p-5 rounded-xl">
-<div class="flex items-center gap-3 mb-4">
-<div class="size-10 rounded-lg bg-primary text-white flex items-center justify-center">
-<span class="material-symbols-outlined">holiday_village</span>
+<div class="bg-primary/5 border border-primary/20 p-3 md:p-5 rounded-xl">
+<div class="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+<div class="size-8 md:size-10 rounded-lg bg-primary text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-lg md:text-xl">holiday_village</span>
 </div>
-<h3 class="font-bold">Holiday Homework</h3>
+<h3 class="font-bold text-base md:text-lg">Holiday Homework</h3>
 </div>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Access and download the winter assignments for all classes.</p>
-<div class="space-y-2">
-<a class="flex items-center justify-between p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary transition-colors text-sm font-medium" href="#">
+<p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mb-3 md:mb-4">Access and download the winter assignments for all classes.</p>
+<div class="space-y-1 md:space-y-2">
+<a class="flex items-center justify-between p-2 md:p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary transition-colors text-xs md:text-sm font-medium" href="#">
                             Junior School (Gr. 1-5)
-                            <span class="material-symbols-outlined text-primary">download</span>
+                            <span class="material-symbols-outlined text-primary text-base md:text-lg">download</span>
 </a>
-<a class="flex items-center justify-between p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary transition-colors text-sm font-medium" href="#">
+<a class="flex items-center justify-between p-2 md:p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary transition-colors text-xs md:text-sm font-medium" href="#">
                             Middle School (Gr. 6-8)
-                            <span class="material-symbols-outlined text-primary">download</span>
+                            <span class="material-symbols-outlined text-primary text-base md:text-lg">download</span>
 </a>
-<a class="flex items-center justify-between p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary transition-colors text-sm font-medium" href="#">
+<a class="flex items-center justify-between p-2 md:p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary transition-colors text-xs md:text-sm font-medium" href="#">
                             Senior School (Gr. 9-12)
-                            <span class="material-symbols-outlined text-primary">download</span>
+                            <span class="material-symbols-outlined text-primary text-base md:text-lg">download</span>
 </a>
 </div>
 </div>
 <!-- Quick Links Sidebar -->
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
-<h3 class="font-bold mb-4">Quick Links</h3>
-<ul class="space-y-3">
+<div class="bg-white dark:bg-slate-900 p-3 md:p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Quick Links</h3>
+<ul class="space-y-2 md:space-y-3">
 <li>
-<a class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-lg">event_note</span>
+<a class="flex items-center gap-2 text-xs md:text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base md:text-lg">event_note</span>
                                 Examination Schedule 2024
                             </a>
 </li>
 <li>
-<a class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+<a class="flex items-center gap-2 text-xs md:text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base md:text-lg">account_balance_wallet</span>
                                 Fee Structure &amp; Payments
                             </a>
 </li>
 <li>
-<a class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-lg">bus_alert</span>
+<a class="flex items-center gap-2 text-xs md:text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base md:text-lg">bus_alert</span>
                                 Transport Routes &amp; Timings
                             </a>
 </li>
 <li>
-<a class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-lg">import_contacts</span>
+<a class="flex items-center gap-2 text-xs md:text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base md:text-lg">import_contacts</span>
                                 School Almanac / Diary
                             </a>
 </li>
@@ -361,22 +435,55 @@
 </div>
 </div>
 </main>
-<footer class="mt-12 py-10 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
-<div class="max-w-[1440px] mx-auto px-6 lg:px-20 text-center">
-<div class="flex items-center justify-center gap-2 mb-4">
+
+<footer class="mt-8 md:mt-12 py-6 md:py-10 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+<div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-20 text-center">
+<div class="flex items-center justify-center gap-2 mb-3 md:mb-4">
 <span class="material-symbols-outlined text-primary">school</span>
-<span class="font-bold text-lg">St. Mary's School</span>
+<span class="font-bold text-base md:text-lg">St. Mary's School</span>
 </div>
-<p class="text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto mb-6">
+<p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto mb-4 md:mb-6">
                 Committed to providing excellence in education since 1985. 
                 For support, contact the school administration at support@stmarys.edu
             </p>
-<div class="flex justify-center gap-6">
-<a class="text-slate-400 hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="text-slate-400 hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="text-slate-400 hover:text-primary transition-colors" href="#">Sitemap</a>
+<div class="flex justify-center gap-4 md:gap-6 flex-wrap">
+<a class="text-slate-400 hover:text-primary transition-colors text-xs md:text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-xs md:text-sm" href="#">Terms of Service</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-xs md:text-sm" href="#">Sitemap</a>
 </div>
-<p class="mt-8 text-xs text-slate-400">© 2024 St. Mary's School. All rights reserved.</p>
+<p class="mt-6 md:mt-8 text-xs text-slate-400">© 2026 St. Mary's School. All rights reserved.</p>
 </div>
 </footer>
+</div>
+
+<script>
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.add('sidebar-active');
+        sidebarOverlay.classList.remove('hidden');
+    });
+
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    // Close sidebar on window resize if it becomes desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('sidebar-active');
+            sidebarOverlay.classList.add('hidden');
+        }
+    });
+</script>
 </body></html>
