@@ -31,26 +31,105 @@
             },
         }
     </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @media (max-width: 1024px) {
+            .sidebar-active {
+                transform: translateX(0) !important;
+            }
+        }
+        /* Hide scrollbar for tabs */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-slate-50 min-h-screen overflow-x-hidden">
 <div class="relative flex h-auto min-h-screen w-full flex-col">
-<div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] dark:border-b-slate-800 px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-4 text-primary">
+<!-- Sidebar -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
+<aside id="sidebar" class="fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-background-dark border-r border-[#e7edf3] dark:border-slate-800 transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:w-64 transition-transform duration-300 overflow-y-auto">
+<div class="p-6">
+<div class="flex items-center gap-3 text-primary mb-8">
 <div class="size-8">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_6_319)">
-<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
-</g>
-<defs>
-<clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath>
-</defs>
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">St. Joseph Academy</h2>
+<h3 class="text-[#0d141b] dark:text-white font-bold">Menu</h3>
+<button id="sidebar-close" class="ml-auto lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined">close</span>
+</button>
 </div>
-<nav class="hidden lg:flex items-center gap-9">
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Academics</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span>About Us</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span>Admissions</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span>Achievement</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Faculty</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span>Facilities</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span>Gallery</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notice Board</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span>Contact Us</span>
+</a>
+</nav>
+</div>
+</aside>
+
+<div class="layout-container flex h-full grow flex-col lg:ml-64">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] dark:border-b-slate-800 px-4 md:px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-40">
+<div class="flex items-center gap-4 md:gap-8">
+<button id="sidebar-toggle" class="lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<div class="flex items-center gap-3 md:gap-4 text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-base md:text-lg font-bold leading-tight tracking-tight">St. Joseph Academy</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-6 md:gap-9">
 <a class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Home</a>
 <a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-1" href="#">Academics</a>
 <a class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Admissions</a>
@@ -58,16 +137,16 @@
 <a class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Resources</a>
 </nav>
 </div>
-<div class="flex flex-1 justify-end gap-8">
-<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<label class="hidden md:flex flex-col min-w-0 md:min-w-40 !h-10 max-w-64">
 <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-<div class="text-[#4c739a] flex border-none bg-[#e7edf3] dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg" data-icon="search">
-<span class="material-symbols-outlined text-[20px]">search</span>
+<div class="text-[#4c739a] flex border-none bg-[#e7edf3] dark:bg-slate-800 items-center justify-center pl-3 md:pl-4 rounded-l-lg" data-icon="search">
+<span class="material-symbols-outlined text-[18px] md:text-[20px]">search</span>
 </div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#e7edf3] dark:bg-slate-800 focus:border-none h-full placeholder:text-[#4c739a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#e7edf3] dark:bg-slate-800 focus:border-none h-full placeholder:text-[#4c739a] px-3 md:px-4 rounded-l-none border-l-0 pl-2 text-sm md:text-base font-normal leading-normal" placeholder="Search" value=""/>
 </div>
 </label>
-<button class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<button class="flex min-w-[100px] md:min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-3 md:px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity whitespace-nowrap">
 <span class="truncate">Portal Login</span>
 </button>
 </div>
@@ -78,110 +157,111 @@
 <a class="text-[#4c739a] text-sm font-medium leading-normal flex items-center gap-1" href="#">Home <span class="material-symbols-outlined text-xs">chevron_right</span></a>
 <span class="text-[#0d141b] dark:text-slate-200 text-sm font-medium leading-normal">Academics</span>
 </div>
-<div class="@container mb-8">
+<div class="@container mb-6 md:mb-8">
 <div class="@[480px]:p-0">
-<div class="flex min-h-[380px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-center justify-center p-8 text-center" data-alt="St. Joseph Academy modern library interior with students" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD90hG2HhlNicTEP423tmj4UzX85gqaf3JybA80jyEdUZJP5dAXVbKo8Ga5sX6loQGZp20LEgpuZW0tGX5dGT-5N_J4td3X7b2hfKeuS0NbWFdzgcIrwtP2UIjNghojHyroAMTfdM6jP_revywEO64-9BLtbjYySpCZN7vyCcITeDh7Im4-iaOvT6uJ_k7QvxRaKUfZzXu1-nfHT30N0mBu-R_KB_93Hd_Go5EhLvpoUbiZ2TAEGE5bGiUzQsGmatvCXvhC_guLl9Ca");'>
-<div class="flex flex-col gap-4 max-w-2xl">
-<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl">
+<div class="flex min-h-[300px] md:min-h-[380px] flex-col gap-4 md:gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-center justify-center p-4 md:p-8 text-center" data-alt="St. Joseph Academy modern library interior with students" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD90hG2HhlNicTEP423tmj4UzX85gqaf3JybA80jyEdUZJP5dAXVbKo8Ga5sX6loQGZp20LEgpuZW0tGX5dGT-5N_J4td3X7b2hfKeuS0NbWFdzgcIrwtP2UIjNghojHyroAMTfdM6jP_revywEO64-9BLtbjYySpCZN7vyCcITeDh7Im4-iaOvT6uJ_k7QvxRaKUfZzXu1-nfHT30N0mBu-R_KB_93Hd_Go5EhLvpoUbiZ2TAEGE5bGiUzQsGmatvCXvhC_guLl9Ca");'>
+<div class="flex flex-col gap-3 md:gap-4 max-w-2xl">
+<h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
                                         Academic Programs
                                     </h1>
-<p class="text-slate-100 text-base font-normal leading-relaxed @[480px]:text-lg">
+<p class="text-slate-100 text-sm md:text-base lg:text-lg font-normal leading-relaxed">
                                         Empowering students through innovation, tradition, and academic rigor. Our comprehensive curriculum is designed to foster critical thinking and global leadership.
                                     </p>
 </div>
-<div class="flex gap-4">
-<button class="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]">
+<div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+<button class="flex min-w-[150px] md:min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 md:h-12 px-4 md:px-6 bg-primary text-white text-sm md:text-base font-bold leading-normal tracking-[0.015em] whitespace-nowrap">
 <span class="truncate">Download Prospectus</span>
 </button>
-<button class="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white/20 backdrop-blur-md text-white border border-white/30 text-base font-bold leading-normal tracking-[0.015em]">
+<button class="flex min-w-[150px] md:min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 md:h-12 px-4 md:px-6 bg-white/20 backdrop-blur-md text-white border border-white/30 text-sm md:text-base font-bold leading-normal tracking-[0.015em] whitespace-nowrap">
 <span class="truncate">Virtual Tour</span>
 </button>
 </div>
 </div>
 </div>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
 <div class="lg:col-span-3">
-<h2 class="text-[#0d141b] dark:text-white text-[28px] font-bold leading-tight tracking-[-0.015em] pb-6 border-b border-slate-200 dark:border-slate-800">Our Departments</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
-<div class="flex flex-col gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
-<div class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-<span class="material-symbols-outlined text-3xl">biotech</span>
+<h2 class="text-[#0d141b] dark:text-white text-xl md:text-2xl lg:text-[28px] font-bold leading-tight tracking-tight pb-4 md:pb-6 border-b border-slate-200 dark:border-slate-800">Our Departments</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 py-6 md:py-8">
+<div class="flex flex-col gap-3 md:gap-4 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
+<div class="size-10 md:size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-2xl md:text-3xl">biotech</span>
 </div>
 <div>
-<h3 class="text-[#0d141b] dark:text-white text-xl font-bold mb-2">Science</h3>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">Focusing on innovation, research, and technical proficiency through hands-on lab experiments.</p>
+<h3 class="text-[#0d141b] dark:text-white text-lg md:text-xl font-bold mb-1 md:mb-2">Science</h3>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">Focusing on innovation, research, and technical proficiency through hands-on lab experiments.</p>
 </div>
 </div>
-<div class="flex flex-col gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
-<div class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-<span class="material-symbols-outlined text-3xl">trending_up</span>
-</div>
-<div>
-<h3 class="text-[#0d141b] dark:text-white text-xl font-bold mb-2">Commerce</h3>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">Preparing future entrepreneurs for the world of finance, economics, and global business.</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
-<div class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-<span class="material-symbols-outlined text-3xl">palette</span>
+<div class="flex flex-col gap-3 md:gap-4 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
+<div class="size-10 md:size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-2xl md:text-3xl">trending_up</span>
 </div>
 <div>
-<h3 class="text-[#0d141b] dark:text-white text-xl font-bold mb-2">Arts</h3>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">Exploring human culture, history, and creative expression through literature and social sciences.</p>
+<h3 class="text-[#0d141b] dark:text-white text-lg md:text-xl font-bold mb-1 md:mb-2">Commerce</h3>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">Preparing future entrepreneurs for the world of finance, economics, and global business.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 md:gap-4 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
+<div class="size-10 md:size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-2xl md:text-3xl">palette</span>
+</div>
+<div>
+<h3 class="text-[#0d141b] dark:text-white text-lg md:text-xl font-bold mb-1 md:mb-2">Arts</h3>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">Exploring human culture, history, and creative expression through literature and social sciences.</p>
 </div>
 </div>
 </div>
-<div class="mt-10">
-<h2 class="text-[#0d141b] dark:text-white text-[24px] font-bold leading-tight tracking-[-0.015em] pb-6">Curriculum by Grade Level</h2>
-<div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 overflow-x-auto no-scrollbar">
-<button class="px-6 py-3 text-primary border-b-2 border-primary font-bold text-sm whitespace-nowrap">Primary (1-5)</button>
-<button class="px-6 py-3 text-[#4c739a] dark:text-slate-400 hover:text-primary font-medium text-sm whitespace-nowrap transition-colors">Secondary (6-10)</button>
-<button class="px-6 py-3 text-[#4c739a] dark:text-slate-400 hover:text-primary font-medium text-sm whitespace-nowrap transition-colors">Senior Secondary (11-12)</button>
+<div class="mt-8 md:mt-10">
+<h2 class="text-[#0d141b] dark:text-white text-lg md:text-xl lg:text-[24px] font-bold leading-tight tracking-tight pb-4 md:pb-6">Curriculum by Grade Level</h2>
+<div class="flex border-b border-slate-200 dark:border-slate-800 mb-4 md:mb-6 overflow-x-auto no-scrollbar">
+<button class="px-4 md:px-6 py-2 md:py-3 text-primary border-b-2 border-primary font-bold text-xs md:text-sm whitespace-nowrap">Primary (1-5)</button>
+<button class="px-4 md:px-6 py-2 md:py-3 text-[#4c739a] dark:text-slate-400 hover:text-primary font-medium text-xs md:text-sm whitespace-nowrap transition-colors">Secondary (6-10)</button>
+<button class="px-4 md:px-6 py-2 md:py-3 text-[#4c739a] dark:text-slate-400 hover:text-primary font-medium text-xs md:text-sm whitespace-nowrap transition-colors">Senior Secondary (11-12)</button>
 </div>
 <div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
-<table class="w-full text-left">
+<div class="overflow-x-auto">
+<table class="w-full text-left min-w-[500px]">
 <thead class="bg-slate-50 dark:bg-slate-800/50">
 <tr>
-<th class="px-6 py-4 text-xs font-bold text-[#4c739a] uppercase tracking-wider">Subject Name</th>
-<th class="px-6 py-4 text-xs font-bold text-[#4c739a] uppercase tracking-wider">Department</th>
-<th class="px-6 py-4 text-xs font-bold text-[#4c739a] uppercase tracking-wider text-right">Syllabus</th>
+<th class="px-4 md:px-6 py-3 md:py-4 text-xs font-bold text-[#4c739a] uppercase tracking-wider">Subject Name</th>
+<th class="px-4 md:px-6 py-3 md:py-4 text-xs font-bold text-[#4c739a] uppercase tracking-wider">Department</th>
+<th class="px-4 md:px-6 py-3 md:py-4 text-xs font-bold text-[#4c739a] uppercase tracking-wider text-right">Syllabus</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-medium">English Language &amp; Literature</td>
-<td class="px-6 py-4 text-[#4c739a] text-sm">Humanities</td>
-<td class="px-6 py-4 text-right">
-<button class="text-primary hover:underline text-sm font-bold flex items-center gap-1 justify-end">
-<span class="material-symbols-outlined text-sm">download</span> PDF
+<td class="px-4 md:px-6 py-3 md:py-4 font-medium text-sm md:text-base">English Language &amp; Literature</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-[#4c739a] text-xs md:text-sm">Humanities</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-right">
+<button class="text-primary hover:underline text-xs md:text-sm font-bold flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-xs">download</span> PDF
                                                     </button>
 </td>
 </tr>
 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-medium">Mathematics</td>
-<td class="px-6 py-4 text-[#4c739a] text-sm">Science &amp; Tech</td>
-<td class="px-6 py-4 text-right">
-<button class="text-primary hover:underline text-sm font-bold flex items-center gap-1 justify-end">
-<span class="material-symbols-outlined text-sm">download</span> PDF
+<td class="px-4 md:px-6 py-3 md:py-4 font-medium text-sm md:text-base">Mathematics</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-[#4c739a] text-xs md:text-sm">Science &amp; Tech</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-right">
+<button class="text-primary hover:underline text-xs md:text-sm font-bold flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-xs">download</span> PDF
                                                     </button>
 </td>
 </tr>
 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-medium">Environmental Studies (EVS)</td>
-<td class="px-6 py-4 text-[#4c739a] text-sm">General Science</td>
-<td class="px-6 py-4 text-right">
-<button class="text-primary hover:underline text-sm font-bold flex items-center gap-1 justify-end">
-<span class="material-symbols-outlined text-sm">download</span> PDF
+<td class="px-4 md:px-6 py-3 md:py-4 font-medium text-sm md:text-base">Environmental Studies (EVS)</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-[#4c739a] text-xs md:text-sm">General Science</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-right">
+<button class="text-primary hover:underline text-xs md:text-sm font-bold flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-xs">download</span> PDF
                                                     </button>
 </td>
 </tr>
 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-medium">Second Language (Hindi/French)</td>
-<td class="px-6 py-4 text-[#4c739a] text-sm">Languages</td>
-<td class="px-6 py-4 text-right">
-<button class="text-primary hover:underline text-sm font-bold flex items-center gap-1 justify-end">
-<span class="material-symbols-outlined text-sm">download</span> PDF
+<td class="px-4 md:px-6 py-3 md:py-4 font-medium text-sm md:text-base">Second Language (Hindi/French)</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-[#4c739a] text-xs md:text-sm">Languages</td>
+<td class="px-4 md:px-6 py-3 md:py-4 text-right">
+<button class="text-primary hover:underline text-xs md:text-sm font-bold flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-xs">download</span> PDF
                                                     </button>
 </td>
 </tr>
@@ -190,18 +270,19 @@
 </div>
 </div>
 </div>
-<aside class="flex flex-col gap-8">
-<div class="bg-primary/5 dark:bg-primary/10 p-6 rounded-xl border border-primary/20">
-<h3 class="text-primary text-lg font-bold mb-4 flex items-center gap-2">
+</div>
+<aside class="flex flex-col gap-6 md:gap-8">
+<div class="bg-primary/5 dark:bg-primary/10 p-4 md:p-6 rounded-xl border border-primary/20">
+<h3 class="text-primary text-base md:text-lg font-bold mb-3 md:mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined">verified_user</span> Board Affiliation
                                 </h3>
-<div class="bg-white dark:bg-slate-800 p-4 rounded-lg flex items-center justify-center mb-4">
+<div class="bg-white dark:bg-slate-800 p-3 md:p-4 rounded-lg flex items-center justify-center mb-3 md:mb-4">
 <div class="text-center">
-<p class="font-black text-2xl text-[#0d141b] dark:text-white">CBSE</p>
+<p class="font-black text-xl md:text-2xl text-[#0d141b] dark:text-white">CBSE</p>
 <p class="text-[10px] text-[#4c739a] uppercase tracking-widest">Affiliated Board</p>
 </div>
 </div>
-<div class="space-y-3">
+<div class="space-y-2 md:space-y-3">
 <div class="flex flex-col">
 <span class="text-[10px] text-[#4c739a] uppercase font-bold">Affiliation No.</span>
 <span class="text-sm font-medium">12345678</span>
@@ -216,48 +297,48 @@
 </div>
 </div>
 </div>
-<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
-<h3 class="text-[#0d141b] dark:text-white text-lg font-bold mb-4">Quick Resources</h3>
-<div class="flex flex-col gap-2">
-<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-primary">calendar_month</span>
+<div class="bg-white dark:bg-slate-900 p-4 md:p-6 rounded-xl border border-slate-100 dark:border-slate-800">
+<h3 class="text-[#0d141b] dark:text-white text-base md:text-lg font-bold mb-3 md:mb-4">Quick Resources</h3>
+<div class="flex flex-col gap-1 md:gap-2">
+<a class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-xs md:text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-base md:text-lg">calendar_month</span>
                                         Academic Calendar
                                     </a>
-<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-primary">assignment</span>
+<a class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-xs md:text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-base md:text-lg">assignment</span>
                                         Exam Schedule
                                     </a>
-<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-primary">library_books</span>
+<a class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-xs md:text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-base md:text-lg">library_books</span>
                                         Library Portal
                                     </a>
-<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
-<span class="material-symbols-outlined text-primary">lab_profile</span>
+<a class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-xs md:text-sm font-medium text-[#4c739a] dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary text-base md:text-lg">lab_profile</span>
                                         E-Labs Access
                                     </a>
 </div>
 </div>
-<div class="relative overflow-hidden rounded-xl h-48 group">
-<div class="absolute inset-0 bg-primary/80 group-hover:bg-primary/90 transition-colors z-10 flex flex-col items-center justify-center p-6 text-center text-white">
+<div class="relative overflow-hidden rounded-xl h-40 md:h-48 group">
+<div class="absolute inset-0 bg-primary/80 group-hover:bg-primary/90 transition-colors z-10 flex flex-col items-center justify-center p-4 md:p-6 text-center text-white">
 <p class="text-xs uppercase font-bold tracking-widest mb-1">Upcoming Event</p>
-<h4 class="text-xl font-bold mb-4">Science Fair 2024</h4>
-<button class="bg-white text-primary px-4 py-2 rounded-lg text-sm font-bold">Register Now</button>
+<h4 class="text-lg md:text-xl font-bold mb-2 md:mb-4">Science Fair 2024</h4>
+<button class="bg-white text-primary px-3 md:px-4 py-1 md:py-2 rounded-lg text-xs md:text-sm font-bold whitespace-nowrap">Register Now</button>
 </div>
 <img alt="Event" class="absolute inset-0 object-cover w-full h-full" data-alt="Science fair students with experiment display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA82YmKb3FVN0lgQGO9J4gELyeW3g1h6fW7QuS7VYX0mO_NVsAPU2qs_zR7lMyAPQhM_K0uYboa7GkaanBtnClLDYRKzUkuLP5HFg4ywOdbovjG3rPjCqc4jvc21XyjBrQaauVrFkTLKBisF2l0vK_JhNRA_Kf1S4oopCzQDkTo0D01a8MDAmHHTWmdnvXkmyWGK3i-LguwTSM7yW220bVawNeP40Ptg7DUibpvZOiAZhan3sc7AY3NIALYVXayjGDvZQzz0b6prDiT"/>
 </div>
 </aside>
 </div>
-<div class="py-12 border-t border-slate-200 dark:border-slate-800 mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="py-8 md:py-12 border-t border-slate-200 dark:border-slate-800 mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
 <div>
-<div class="flex items-center gap-2 text-primary mb-4">
-<span class="material-symbols-outlined font-bold">school</span>
-<span class="font-bold text-lg">St. Joseph Academy</span>
+<div class="flex items-center gap-2 text-primary mb-3 md:mb-4">
+<span class="material-symbols-outlined font-bold text-base md:text-lg">school</span>
+<span class="font-bold text-base md:text-lg">St. Joseph Academy</span>
 </div>
-<p class="text-sm text-[#4c739a] dark:text-slate-400">Founded in 1985, we are committed to providing world-class education that shapes character and builds futures.</p>
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400">Founded in 1985, we are committed to providing world-class education that shapes character and builds futures.</p>
 </div>
 <div>
-<h4 class="font-bold mb-4">Academics</h4>
-<ul class="text-sm text-[#4c739a] dark:text-slate-400 space-y-2">
+<h4 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Academics</h4>
+<ul class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400 space-y-1 md:space-y-2">
 <li><a class="hover:text-primary" href="#">Departments</a></li>
 <li><a class="hover:text-primary" href="#">Curriculum</a></li>
 <li><a class="hover:text-primary" href="#">Faculty</a></li>
@@ -265,8 +346,8 @@
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-4">Admissions</h4>
-<ul class="text-sm text-[#4c739a] dark:text-slate-400 space-y-2">
+<h4 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Admissions</h4>
+<ul class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400 space-y-1 md:space-y-2">
 <li><a class="hover:text-primary" href="#">Procedure</a></li>
 <li><a class="hover:text-primary" href="#">Fee Structure</a></li>
 <li><a class="hover:text-primary" href="#">Scholarships</a></li>
@@ -274,8 +355,8 @@
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-4">Contact</h4>
-<ul class="text-sm text-[#4c739a] dark:text-slate-400 space-y-2">
+<h4 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Contact</h4>
+<ul class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400 space-y-1 md:space-y-2">
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">mail</span> info@stjoseph.edu</li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">call</span> +1 (555) 123-4567</li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">location_on</span> 123 Education Lane, NY</li>
@@ -284,9 +365,40 @@
 </div>
 </div>
 </main>
-<footer class="bg-white dark:bg-slate-950 py-6 px-10 border-t border-slate-200 dark:border-slate-800 text-center">
-<p class="text-xs text-[#4c739a] dark:text-slate-500">© 2024 St. Joseph Academy. All rights reserved. | <a class="hover:underline" href="#">Privacy Policy</a> | <a class="hover:underline" href="#">Terms of Service</a></p>
+<footer class="bg-white dark:bg-slate-950 py-4 md:py-6 px-4 md:px-10 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-xs text-[#4c739a] dark:text-slate-500">© 2026 St. Joseph Academy. All rights reserved. | <a class="hover:underline" href="#">Privacy Policy</a> | <a class="hover:underline" href="#">Terms of Service</a></p>
 </footer>
 </div>
 </div>
+
+<script>
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.add('sidebar-active');
+        sidebarOverlay.classList.remove('hidden');
+    });
+
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    // Close sidebar on window resize if it becomes desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('sidebar-active');
+            sidebarOverlay.classList.add('hidden');
+        }
+    });
+</script>
 </body></html>
