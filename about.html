@@ -39,22 +39,90 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        @media (max-width: 1024px) {
+            .sidebar-active {
+                transform: translateX(0) !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 min-h-screen">
+<!-- Sidebar -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
+<aside id="sidebar" class="fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-background-dark border-r border-[#e7edf3] dark:border-slate-800 transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:w-64 transition-transform duration-300 overflow-y-auto">
+<div class="p-6">
+<div class="flex items-center gap-3 text-primary mb-8">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h3 class="text-[#0d141b] dark:text-white font-bold">Menu</h3>
+<button id="sidebar-close" class="ml-auto lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span>About Us</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Academics</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span>Admissions</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span>Achievement</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Faculty</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span>Facilities</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span>Gallery</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notice Board</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span>Contact Us</span>
+</a>
+</nav>
+</div>
+</aside>
+
 <!-- Top Navigation -->
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-solid border-[#e7edf3] dark:border-slate-800">
-<div class="max-w-[1200px] mx-auto flex items-center justify-between px-6 py-4">
-<div class="flex items-center gap-8">
+<header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-solid border-[#e7edf3] dark:border-slate-800">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
+<div class="flex items-center gap-4 md:gap-8">
+<button id="sidebar-toggle" class="lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
 <div class="flex items-center gap-3 text-primary">
 <div class="size-8">
 <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V44Z" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h2 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight tracking-tight">St. Jude Academy</h2>
+<h2 class="text-[#0d141b] dark:text-white text-lg md:text-xl font-bold leading-tight tracking-tight">St. Jude Academy</h2>
 </div>
-<nav class="hidden lg:flex items-center gap-6">
+<nav class="hidden lg:flex items-center gap-4 md:gap-6">
 <a class="text-[#4c739a] dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Home</a>
 <a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">About Us</a>
 <a class="text-[#4c739a] dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Academics</a>
@@ -62,42 +130,46 @@
 <a class="text-[#4c739a] dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">News</a>
 </nav>
 </div>
-<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 md:gap-6">
 <div class="hidden md:flex items-center bg-[#e7edf3] dark:bg-slate-800 rounded-lg px-3 py-1.5">
 <span class="material-symbols-outlined text-[#4c739a] text-xl">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-[#4c739a]" placeholder="Search..." type="text"/>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 md:w-40 placeholder:text-[#4c739a]" placeholder="Search..." type="text"/>
 </div>
-<button class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">
+<button class="bg-primary text-white px-4 md:px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity whitespace-nowrap">
                     Apply Now
                 </button>
 </div>
 </div>
 </header>
-<main>
+
+<!-- Main Content with Sidebar -->
+<div class="flex">
+<main class="flex-1 lg:ml-64">
 <!-- Hero Section -->
-<section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+<section class="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="Panoramic view of a modern green school campus" style='background-image: linear-gradient(rgba(19, 127, 236, 0.4), rgba(16, 25, 34, 0.8)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCTM_pVhS_WhtjoZoaKslm_2Z-N8_uzcp_tyoipgRm5JiYheke81pjr2Qx8yfBO6WV9PodBG63oau9LlMQ-izcHSZWVvTfSmkAh45GMR0ILv_EGH9d118kv2NHpAnIypK6ONMiY9dGPysZNW-LHFJ5Vfg0s1w41o4E4Y5fZGKRPQYLGrMCY1t5Exn74eU1--yp4UEN9lsBtPl1HwRfL34cM5mL9Mdi_S0HV1mmZ9O71TWk-bLGcHKTgmuHR_-5CRXO4lisfCD9keXLo");'></div>
 <div class="relative z-10 text-center px-4">
-<h1 class="text-white text-5xl md:text-6xl font-black tracking-tight mb-4">About Our School</h1>
-<p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto font-light">
+<h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-3 md:mb-4">About Our School</h1>
+<p class="text-white/90 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-light">
                     Nurturing excellence, fostering integrity, and inspiring global leadership since 1985.
                 </p>
 </div>
 </section>
+
 <!-- Principal's Message Section -->
-<section class="max-w-[1000px] mx-auto px-6 py-20">
-<div class="flex flex-col md:flex-row gap-12 items-start">
-<div class="w-full md:w-1/3 flex flex-col gap-4">
+<section class="max-w-[1000px] mx-auto px-4 md:px-6 py-12 md:py-20">
+<div class="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
+<div class="w-full lg:w-1/3 flex flex-col gap-4">
 <div class="aspect-[3/4] bg-cover bg-center rounded-xl shadow-xl border-4 border-white dark:border-slate-800" data-alt="Professional portrait of a female school principal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCyIZeGS2ySo4KpMeY3GWIwxr-yKdsUkIVKB1v_dvk8lxJuUQnlxx652K2TIa8FvUYymBKIcGrac2ialE9-oCg7eUGv2u_ahh0EHptziQS5oJDEAoaEaY003W_ILXQCAnRQWH5zUhmZGwNwcmCPbdCrNcJoA-tJfDKmW1vFOsf5zWYpBmGfCUpeIpyVraJ8Y4pgW5WydbwapkIYG9krN2Qt91uGq6RMo7G1s7zp463p8oiFw5lBLdUBf8yLwOurgApjI__Gd2JbkeHl");'></div>
-<div class="text-center md:text-left">
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Dr. Elizabeth Sterling</h3>
-<p class="text-primary font-medium italic">Principal &amp; Head of School</p>
+<div class="text-center lg:text-left">
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Dr. Elizabeth Sterling</h3>
+<p class="text-primary font-medium italic text-sm md:text-base">Principal &amp; Head of School</p>
 </div>
 </div>
-<div class="w-full md:w-2/3">
+<div class="w-full lg:w-2/3">
 <div class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4">Leadership</div>
-<h2 class="text-3xl font-bold text-[#0d141b] dark:text-white mb-6 leading-tight">Welcome to Our Learning Community</h2>
-<div class="space-y-4 text-[#4c739a] dark:text-slate-300 leading-relaxed text-lg">
+<h2 class="text-2xl md:text-3xl font-bold text-[#0d141b] dark:text-white mb-4 md:mb-6 leading-tight">Welcome to Our Learning Community</h2>
+<div class="space-y-3 md:space-y-4 text-[#4c739a] dark:text-slate-300 leading-relaxed text-base md:text-lg">
 <p>
                             It is a profound honor to welcome you to St. Jude Academy. For nearly four decades, our institution has stood as a beacon of academic excellence and character development. We believe that education is not merely the delivery of content, but the cultivation of a lifelong passion for discovery.
                         </p>
@@ -108,190 +180,196 @@
                             Whether you are a prospective student, a parent, or an alumnus, I invite you to explore our campus and discover the unique spirit that makes our school a second home to so many. Together, we are building a future where integrity and innovation go hand in hand.
                         </p>
 </div>
-<div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<div class="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 <div>
-<p class="font-display font-bold italic text-2xl text-[#0d141b] dark:text-white">Elizabeth Sterling</p>
-<p class="text-sm text-[#4c739a]">PhD in Educational Leadership</p>
+<p class="font-display font-bold italic text-xl md:text-2xl text-[#0d141b] dark:text-white">Elizabeth Sterling</p>
+<p class="text-xs md:text-sm text-[#4c739a]">PhD in Educational Leadership</p>
 </div>
-<button class="flex items-center gap-2 text-primary font-bold hover:underline">
+<button class="flex items-center gap-2 text-primary font-bold hover:underline text-sm md:text-base">
                             Read Full Biography <span class="material-symbols-outlined">arrow_forward</span>
 </button>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Vision & Mission -->
-<section class="bg-primary/5 dark:bg-slate-900/50 py-20">
-<div class="max-w-[1200px] mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-[#0d141b] dark:text-white">Our Foundations</h2>
-<div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+<section class="bg-primary/5 dark:bg-slate-900/50 py-12 md:py-20">
+<div class="max-w-[1200px] mx-auto px-4 md:px-6">
+<div class="text-center mb-12 md:mb-16">
+<h2 class="text-2xl md:text-3xl font-bold text-[#0d141b] dark:text-white">Our Foundations</h2>
+<div class="w-16 h-1 bg-primary mx-auto mt-3 md:mt-4 rounded-full"></div>
 </div>
-<div class="grid md:grid-cols-2 gap-8">
+<div class="grid md:grid-cols-2 gap-6 md:gap-8">
 <!-- Vision -->
-<div class="bg-white dark:bg-background-dark p-10 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 group hover:border-primary transition-colors">
-<div class="bg-primary/10 text-primary w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
-<span class="material-symbols-outlined text-3xl">visibility</span>
+<div class="bg-white dark:bg-background-dark p-6 md:p-10 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 group hover:border-primary transition-colors">
+<div class="bg-primary/10 text-primary w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-2xl md:text-3xl">visibility</span>
 </div>
-<h3 class="text-2xl font-bold mb-4 dark:text-white">Our Vision</h3>
-<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed">
+<h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 dark:text-white">Our Vision</h3>
+<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed text-sm md:text-base">
                             To be a world-class center of educational excellence, empowering future leaders who are academically proficient, ethically grounded, and socially conscious global citizens.
                         </p>
 </div>
 <!-- Mission -->
-<div class="bg-white dark:bg-background-dark p-10 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 group hover:border-primary transition-colors">
-<div class="bg-primary/10 text-primary w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
-<span class="material-symbols-outlined text-3xl">flag</span>
+<div class="bg-white dark:bg-background-dark p-6 md:p-10 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 group hover:border-primary transition-colors">
+<div class="bg-primary/10 text-primary w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-2xl md:text-3xl">flag</span>
 </div>
-<h3 class="text-2xl font-bold mb-4 dark:text-white">Our Mission</h3>
-<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed">
+<h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 dark:text-white">Our Mission</h3>
+<p class="text-[#4c739a] dark:text-slate-400 leading-relaxed text-sm md:text-base">
                             To provide a transformative learning experience through innovative curriculum, character development, and a supportive community that fosters academic integrity and discipline.
                         </p>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Core Values Grid -->
-<section class="py-20 max-w-[1200px] mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-[#0d141b] dark:text-white">Our Core Values</h2>
-<p class="text-[#4c739a] mt-2">The pillars that define the St. Jude experience</p>
+<section class="py-12 md:py-20 max-w-[1200px] mx-auto px-4 md:px-6">
+<div class="text-center mb-12 md:mb-16">
+<h2 class="text-2xl md:text-3xl font-bold text-[#0d141b] dark:text-white">Our Core Values</h2>
+<p class="text-[#4c739a] mt-2 text-sm md:text-base">The pillars that define the St. Jude experience</p>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
 <div class="text-center flex flex-col items-center">
-<div class="w-16 h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 text-primary">
-<span class="material-symbols-outlined text-3xl">school</span>
+<div class="w-12 h-12 md:w-16 md:h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-3 md:mb-4 text-primary">
+<span class="material-symbols-outlined text-2xl md:text-3xl">school</span>
 </div>
-<h4 class="font-bold text-lg mb-2 dark:text-white">Excellence</h4>
-<p class="text-sm text-[#4c739a] dark:text-slate-400">Striving for the highest standards in everything we do.</p>
-</div>
-<div class="text-center flex flex-col items-center">
-<div class="w-16 h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 text-primary">
-<span class="material-symbols-outlined text-3xl">verified_user</span>
-</div>
-<h4 class="font-bold text-lg mb-2 dark:text-white">Integrity</h4>
-<p class="text-sm text-[#4c739a] dark:text-slate-400">Honesty and strong moral principles in our actions.</p>
+<h4 class="font-bold text-base md:text-lg mb-1 md:mb-2 dark:text-white">Excellence</h4>
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400">Striving for the highest standards in everything we do.</p>
 </div>
 <div class="text-center flex flex-col items-center">
-<div class="w-16 h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 text-primary">
-<span class="material-symbols-outlined text-3xl">groups</span>
+<div class="w-12 h-12 md:w-16 md:h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-3 md:mb-4 text-primary">
+<span class="material-symbols-outlined text-2xl md:text-3xl">verified_user</span>
 </div>
-<h4 class="font-bold text-lg mb-2 dark:text-white">Community</h4>
-<p class="text-sm text-[#4c739a] dark:text-slate-400">Fostering a sense of belonging and mutual support.</p>
+<h4 class="font-bold text-base md:text-lg mb-1 md:mb-2 dark:text-white">Integrity</h4>
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400">Honesty and strong moral principles in our actions.</p>
 </div>
 <div class="text-center flex flex-col items-center">
-<div class="w-16 h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 text-primary">
-<span class="material-symbols-outlined text-3xl">psychology</span>
+<div class="w-12 h-12 md:w-16 md:h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-3 md:mb-4 text-primary">
+<span class="material-symbols-outlined text-2xl md:text-3xl">groups</span>
 </div>
-<h4 class="font-bold text-lg mb-2 dark:text-white">Innovation</h4>
-<p class="text-sm text-[#4c739a] dark:text-slate-400">Embracing new ideas and creative problem solving.</p>
+<h4 class="font-bold text-base md:text-lg mb-1 md:mb-2 dark:text-white">Community</h4>
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400">Fostering a sense of belonging and mutual support.</p>
+</div>
+<div class="text-center flex flex-col items-center">
+<div class="w-12 h-12 md:w-16 md:h-16 bg-background-light dark:bg-slate-800 rounded-full flex items-center justify-center mb-3 md:mb-4 text-primary">
+<span class="material-symbols-outlined text-2xl md:text-3xl">psychology</span>
+</div>
+<h4 class="font-bold text-base md:text-lg mb-1 md:mb-2 dark:text-white">Innovation</h4>
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400">Embracing new ideas and creative problem solving.</p>
 </div>
 </div>
 </section>
+
 <!-- History Timeline -->
-<section class="py-20 bg-[#0d141b] text-white">
-<div class="max-w-[1000px] mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold mb-4">Our Journey</h2>
-<p class="text-slate-400">A timeline of our legacy and milestones</p>
+<section class="py-12 md:py-20 bg-[#0d141b] text-white">
+<div class="max-w-[1000px] mx-auto px-4 md:px-6">
+<div class="text-center mb-12 md:mb-16">
+<h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Our Journey</h2>
+<p class="text-slate-400 text-sm md:text-base">A timeline of our legacy and milestones</p>
 </div>
 <div class="relative before:content-[''] before:absolute before:left-1/2 before:top-0 before:bottom-0 before:w-px before:bg-slate-700 before:-translate-x-1/2">
 <!-- Milestone 1 -->
-<div class="relative mb-12 flex justify-between items-center w-full">
+<div class="relative mb-8 md:mb-12 flex justify-between items-center w-full">
 <div class="hidden md:block w-5/12"></div>
-<div class="z-20 flex items-center justify-center w-10 h-10 bg-primary rounded-full ring-8 ring-[#0d141b]">
+<div class="z-20 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full ring-6 md:ring-8 ring-[#0d141b]">
 <span class="text-xs font-bold">1985</span>
 </div>
-<div class="w-full md:w-5/12 bg-slate-800 p-6 rounded-xl border border-slate-700 ml-4 md:ml-0">
-<h4 class="font-bold text-primary mb-1">Founded</h4>
-<p class="text-sm text-slate-300">St. Jude Academy opens its doors with its first class of 50 students and 5 faculty members.</p>
+<div class="w-full md:w-5/12 bg-slate-800 p-4 md:p-6 rounded-xl border border-slate-700 ml-3 md:ml-0">
+<h4 class="font-bold text-primary mb-1 text-sm md:text-base">Founded</h4>
+<p class="text-xs md:text-sm text-slate-300">St. Jude Academy opens its doors with its first class of 50 students and 5 faculty members.</p>
 </div>
 </div>
 <!-- Milestone 2 -->
-<div class="relative mb-12 flex justify-between items-center w-full flex-row-reverse">
+<div class="relative mb-8 md:mb-12 flex justify-between items-center w-full flex-row-reverse">
 <div class="hidden md:block w-5/12"></div>
-<div class="z-20 flex items-center justify-center w-10 h-10 bg-primary rounded-full ring-8 ring-[#0d141b]">
+<div class="z-20 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full ring-6 md:ring-8 ring-[#0d141b]">
 <span class="text-xs font-bold">2000</span>
 </div>
-<div class="w-full md:w-5/12 bg-slate-800 p-6 rounded-xl border border-slate-700 mr-4 md:mr-0 text-left md:text-right">
-<h4 class="font-bold text-primary mb-1">Expansion</h4>
-<p class="text-sm text-slate-300">Completion of the Sterling Arts Center and Olympic-sized swimming complex.</p>
+<div class="w-full md:w-5/12 bg-slate-800 p-4 md:p-6 rounded-xl border border-slate-700 mr-3 md:mr-0 text-left md:text-right">
+<h4 class="font-bold text-primary mb-1 text-sm md:text-base">Expansion</h4>
+<p class="text-xs md:text-sm text-slate-300">Completion of the Sterling Arts Center and Olympic-sized swimming complex.</p>
 </div>
 </div>
 <!-- Milestone 3 -->
-<div class="relative mb-12 flex justify-between items-center w-full">
+<div class="relative mb-8 md:mb-12 flex justify-between items-center w-full">
 <div class="hidden md:block w-5/12"></div>
-<div class="z-20 flex items-center justify-center w-10 h-10 bg-primary rounded-full ring-8 ring-[#0d141b]">
+<div class="z-20 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full ring-6 md:ring-8 ring-[#0d141b]">
 <span class="text-xs font-bold">2012</span>
 </div>
-<div class="w-full md:w-5/12 bg-slate-800 p-6 rounded-xl border border-slate-700 ml-4 md:ml-0">
-<h4 class="font-bold text-primary mb-1">Tech Initiative</h4>
-<p class="text-sm text-slate-300">Launched our 1:1 digital learning program and state-of-the-art STEM laboratories.</p>
+<div class="w-full md:w-5/12 bg-slate-800 p-4 md:p-6 rounded-xl border border-slate-700 ml-3 md:ml-0">
+<h4 class="font-bold text-primary mb-1 text-sm md:text-base">Tech Initiative</h4>
+<p class="text-xs md:text-sm text-slate-300">Launched our 1:1 digital learning program and state-of-the-art STEM laboratories.</p>
 </div>
 </div>
 <!-- Milestone 4 -->
 <div class="relative mb-0 flex justify-between items-center w-full flex-row-reverse">
 <div class="hidden md:block w-5/12"></div>
-<div class="z-20 flex items-center justify-center w-10 h-10 bg-primary rounded-full ring-8 ring-[#0d141b]">
+<div class="z-20 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full ring-6 md:ring-8 ring-[#0d141b]">
 <span class="text-xs font-bold">2023</span>
 </div>
-<div class="w-full md:w-5/12 bg-slate-800 p-6 rounded-xl border border-slate-700 mr-4 md:mr-0 text-left md:text-right">
-<h4 class="font-bold text-primary mb-1">Global Recognition</h4>
-<p class="text-sm text-slate-300">Awarded "International School of the Year" for community service and innovation.</p>
+<div class="w-full md:w-5/12 bg-slate-800 p-4 md:p-6 rounded-xl border border-slate-700 mr-3 md:mr-0 text-left md:text-right">
+<h4 class="font-bold text-primary mb-1 text-sm md:text-base">Global Recognition</h4>
+<p class="text-xs md:text-sm text-slate-300">Awarded "International School of the Year" for community service and innovation.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
+
 <!-- CTA Section -->
-<section class="py-20 max-w-[1200px] mx-auto px-6">
-<div class="bg-primary rounded-3xl p-12 text-center text-white relative overflow-hidden">
-<div class="absolute top-0 right-0 p-12 opacity-10">
-<span class="material-symbols-outlined text-[200px]">auto_stories</span>
+<section class="py-12 md:py-20 max-w-[1200px] mx-auto px-4 md:px-6">
+<div class="bg-primary rounded-2xl md:rounded-3xl p-6 md:p-12 text-center text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6 md:p-12 opacity-10">
+<span class="material-symbols-outlined text-[120px] md:text-[200px]">auto_stories</span>
 </div>
 <div class="relative z-10">
-<h2 class="text-4xl font-black mb-6">Ready to start your journey?</h2>
-<p class="text-lg text-white/80 max-w-xl mx-auto mb-10">
+<h2 class="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6">Ready to start your journey?</h2>
+<p class="text-base md:text-lg text-white/80 max-w-xl mx-auto mb-6 md:mb-10">
                         Join a community dedicated to your growth and success. Experience the St. Jude difference firsthand.
                     </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-colors">Apply Now</button>
-<button class="bg-primary border-2 border-white/30 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors">Schedule a Tour</button>
+<div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+<button class="bg-white text-primary px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold hover:bg-slate-50 transition-colors text-sm md:text-base">Apply Now</button>
+<button class="bg-primary border-2 border-white/30 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold hover:bg-white/10 transition-colors text-sm md:text-base">Schedule a Tour</button>
 </div>
 </div>
 </div>
 </section>
 </main>
+</div>
+
 <!-- Footer -->
-<footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-16">
-<div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-4 gap-12">
-<div class="col-span-2">
+<footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-12 md:py-16">
+<div class="max-w-[1200px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+<div class="col-span-1 md:col-span-2">
 <div class="flex items-center gap-3 text-primary mb-6">
 <div class="size-6">
 <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V44Z" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h2 class="text-[#0d141b] dark:text-white text-xl font-bold tracking-tight">St. Jude Academy</h2>
+<h2 class="text-[#0d141b] dark:text-white text-lg md:text-xl font-bold tracking-tight">St. Jude Academy</h2>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 max-w-sm mb-6">
+<p class="text-[#4c739a] dark:text-slate-400 max-w-sm mb-6 text-sm md:text-base">
                     Inspiring minds, building characters, and preparing students for a global future since 1985.
                 </p>
 <div class="flex gap-4">
-<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
-<span class="material-symbols-outlined">social_leaderboard</span>
+<div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm md:text-base">social_leaderboard</span>
 </div>
-<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
-<span class="material-symbols-outlined text-xl">camera</span>
+<div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-base md:text-xl">camera</span>
 </div>
-<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
-<span class="material-symbols-outlined text-xl">alternate_email</span>
+<div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-base md:text-xl">alternate_email</span>
 </div>
 </div>
 </div>
 <div>
-<h4 class="font-bold text-[#0d141b] dark:text-white mb-6">Quick Links</h4>
-<ul class="space-y-3 text-sm text-[#4c739a] dark:text-slate-400">
+<h4 class="font-bold text-[#0d141b] dark:text-white mb-4 md:mb-6">Quick Links</h4>
+<ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-[#4c739a] dark:text-slate-400">
 <li><a class="hover:text-primary transition-colors" href="#">Academic Calendar</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">School News</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
@@ -299,16 +377,47 @@
 </ul>
 </div>
 <div>
-<h4 class="font-bold text-[#0d141b] dark:text-white mb-6">Contact</h4>
-<ul class="space-y-3 text-sm text-[#4c739a] dark:text-slate-400">
+<h4 class="font-bold text-[#0d141b] dark:text-white mb-4 md:mb-6">Contact</h4>
+<ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-[#4c739a] dark:text-slate-400">
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">location_on</span> 123 Education Way, Academic Heights</li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">phone</span> +1 (555) 012-3456</li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">mail</span> admissions@stjude.edu</li>
 </ul>
 </div>
 </div>
-<div class="max-w-[1200px] mx-auto px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-[#4c739a]">
+<div class="max-w-[1200px] mx-auto px-4 md:px-6 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-[#4c739a]">
             © 2024 St. Jude Academy. All rights reserved.
         </div>
 </footer>
+
+<script>
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.add('sidebar-active');
+        sidebarOverlay.classList.remove('hidden');
+    });
+
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    // Close sidebar on window resize if it becomes desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('sidebar-active');
+            sidebarOverlay.classList.add('hidden');
+        }
+    });
+</script>
 </body></html>
