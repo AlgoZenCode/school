@@ -38,73 +38,145 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        @media (max-width: 1024px) {
+            .sidebar-active {
+                transform: translateX(0) !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 min-h-screen flex flex-col transition-colors duration-200">
-<!-- Navigation Bar -->
-<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#e7edf3] dark:border-slate-800 px-4 md:px-10 lg:px-40 py-3">
-<div class="flex items-center justify-between whitespace-nowrap">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-4 text-[#0d141b] dark:text-slate-50">
-<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<!-- Sidebar -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
+<aside id="sidebar" class="fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-background-dark border-r border-[#e7edf3] dark:border-slate-800 transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:w-64 transition-transform duration-300 overflow-y-auto">
+<div class="p-6">
+<div class="flex items-center gap-3 text-primary mb-8">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h3 class="text-[#0d141b] dark:text-white font-bold">Menu</h3>
+<button id="sidebar-close" class="ml-auto lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
 <span class="material-symbols-outlined">school</span>
-</div>
-<h2 class="text-lg font-bold leading-tight tracking-tight">Campus Link</h2>
-</div>
-<nav class="hidden md:flex items-center gap-6">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Admissions</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">News</a>
-<a class="text-sm font-medium text-primary" href="#">Facilities</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+<span>Academics</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span>About Us</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span>Admissions</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span>Achievement</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Faculty</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span>Facilities</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span>Gallery</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notice Board</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span>Contact Us</span>
+</a>
 </nav>
 </div>
-<div class="flex items-center gap-4">
-<div class="hidden sm:flex items-center bg-[#e7edf3] dark:bg-slate-800 rounded-lg px-3 py-1.5">
-<span class="material-symbols-outlined text-[#4c739a] text-xl">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-sm placeholder-[#4c739a] w-32 md:w-48" placeholder="Search facilities..." type="text"/>
+</aside>
+
+<div class="flex flex-1 lg:ml-64">
+<main class="flex-1">
+<!-- Navigation Bar -->
+<header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#e7edf3] dark:border-slate-800 px-4 md:px-10 py-3">
+<div class="flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-4 md:gap-8">
+<button id="sidebar-toggle" class="lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<div class="flex items-center gap-3 md:gap-4 text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
 </div>
-<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all">
+<h2 class="text-[#0d141b] dark:text-slate-50 text-base md:text-lg font-bold leading-tight tracking-tight">Campus Link</h2>
+</div>
+<nav class="hidden md:flex items-center gap-4 md:gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">Admissions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">News</a>
+<a class="text-sm font-medium text-primary" href="#">Facilities</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-3 md:gap-4">
+<div class="hidden sm:flex items-center bg-[#e7edf3] dark:bg-slate-800 rounded-lg px-3 py-1.5">
+<span class="material-symbols-outlined text-[#4c739a] text-lg md:text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder-[#4c739a] w-24 md:w-32 lg:w-48" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-3 md:px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap">
                     Contact Us
                 </button>
 </div>
 </div>
 </header>
-<main class="flex-1">
+
 <!-- Hero Section -->
-<section class="px-4 md:px-10 lg:px-40 py-12 md:py-20">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-<div class="flex flex-col gap-6">
-<div class="flex flex-col gap-3">
+<section class="px-4 md:px-10 py-8 md:py-12 lg:py-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
+<div class="flex flex-col gap-4 md:gap-6">
+<div class="flex flex-col gap-2 md:gap-3">
 <span class="text-primary font-bold tracking-widest text-xs uppercase">Our Infrastructure</span>
-<h1 class="text-[#0d141b] dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+<h1 class="text-[#0d141b] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
                             World-Class Facilities for Future Leaders
                         </h1>
-<p class="text-[#4c739a] dark:text-slate-400 text-lg md:text-xl font-normal max-w-xl">
+<p class="text-[#4c739a] dark:text-slate-400 text-base md:text-lg lg:text-xl font-normal max-w-xl">
                             Discover the physical and academic infrastructure designed to empower our students and foster excellence in every field.
                         </p>
 </div>
-<div class="flex flex-wrap gap-4">
-<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all">
+<div class="flex flex-wrap gap-3 md:gap-4">
+<button class="bg-primary text-white px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all text-sm md:text-base whitespace-nowrap">
 <span class="material-symbols-outlined">map</span>
                             Explore Campus Map
                         </button>
-<button class="bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all">
+<button class="bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-xl font-bold hover:bg-slate-50 transition-all text-sm md:text-base whitespace-nowrap">
                             Take Virtual Tour
                         </button>
 </div>
 </div>
 <div class="relative">
-<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-3xl shadow-2xl overflow-hidden" data-alt="Modern high school building exterior with glass architecture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT75YJkFJYVWPFDM_5iocftV0JrFzEfJs1j2Hu7i3xSArZWbCvEBrVkogs0l_A4O3M8F3xDY1oCyRipjA6PXoiyo7ZmKAQKwLPqezrqWpAq4GrCEMZJWqCwVtM529CT9qzXvoKgioc0lmnAGruIWnYFPkyhQJOcVd3cOWNj8ar6vqfCV-LxGcwVa6gDp-EQDUQnXUuXA-0cmJOay8zhruBdzXHPDIranez8ZMpHThQiLAfF_ofpYHCwduP-VxdJ1NlXfrsY6CUv5kg");'>
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-xl md:rounded-2xl lg:rounded-3xl shadow-xl md:shadow-2xl overflow-hidden" data-alt="Modern high school building exterior with glass architecture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT75YJkFJYVWPFDM_5iocftV0JrFzEfJs1j2Hu7i3xSArZWbCvEBrVkogs0l_A4O3M8F3xDY1oCyRipjA6PXoiyo7ZmKAQKwLPqezrqWpAq4GrCEMZJWqCwVtM529CT9qzXvoKgioc0lmnAGruIWnYFPkyhQJOcVd3cOWNj8ar6vqfCV-LxGcwVa6gDp-EQDUQnXUuXA-0cmJOay8zhruBdzXHPDIranez8ZMpHThQiLAfF_ofpYHCwduP-VxdJ1NlXfrsY6CUv5kg");'>
 <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 </div>
-<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl hidden md:block">
-<div class="flex items-center gap-4">
-<div class="bg-primary/10 p-3 rounded-full">
-<span class="material-symbols-outlined text-primary">verified</span>
+<div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white dark:bg-slate-800 p-4 md:p-6 rounded-xl md:rounded-2xl shadow-xl hidden md:block">
+<div class="flex items-center gap-3 md:gap-4">
+<div class="bg-primary/10 p-2 md:p-3 rounded-full">
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">verified</span>
 </div>
 <div>
-<p class="text-2xl font-black">50+</p>
+<p class="text-xl md:text-2xl font-black">50+</p>
 <p class="text-xs text-[#4c739a] uppercase font-bold tracking-widest">Global Awards</p>
 </div>
 </div>
@@ -112,193 +184,205 @@
 </div>
 </div>
 </section>
+
 <!-- Facilities Section -->
-<section class="bg-white dark:bg-background-dark py-20 px-4 md:px-10 lg:px-40">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<section class="bg-white dark:bg-background-dark py-8 md:py-12 lg:py-20 px-4 md:px-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4">
 <div class="max-w-2xl">
-<h2 class="text-3xl font-bold text-[#0d141b] dark:text-white mb-4">Educational Resources</h2>
-<p class="text-[#4c739a] dark:text-slate-400">Our campus is designed to be a hub of innovation, creativity, and physical well-being. Explore the specialized spaces that make our school a leader in modern education.</p>
+<h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-[#0d141b] dark:text-white mb-3 md:mb-4">Educational Resources</h2>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm md:text-base">Our campus is designed to be a hub of innovation, creativity, and physical well-being. Explore the specialized spaces that make our school a leader in modern education.</p>
 </div>
-<div class="flex gap-2">
+<div class="flex gap-2 self-start md:self-end">
 <button class="p-2 border border-[#e7edf3] dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
-<span class="material-symbols-outlined">chevron_left</span>
+<span class="material-symbols-outlined text-sm md:text-base">chevron_left</span>
 </button>
 <button class="p-2 border border-[#e7edf3] dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
-<span class="material-symbols-outlined">chevron_right</span>
+<span class="material-symbols-outlined text-sm md:text-base">chevron_right</span>
 </button>
 </div>
 </div>
+
 <!-- Image Grid Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
 <!-- Science Labs -->
-<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Students working in a modern chemistry lab with microscopes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCD-TDQXGSMUCS0U7Y3oIKDAGpH6hZotuL9mtG_4RzGYDchswUZTY31OHMQmrhl6E0xCBrVrtQNAqPRvgeiQ6__aqaafvnwVibM8nWf9UfWIH5XNmHAxz9P8_hzgluLga08S-Q0wyHMbbBZ6eEUNzx5rEGwh4StCJCWsYZDWBXrnOTuKDoyeSAcR9g0oaLz0a2HQAHpy8Cp6-SAqNVsGY5NLKXhs2Qw26lLwcIHQfRi5RJpeTtKMVUI230kXzCgfPva_YunFaOMBYLE");'>
+<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-xl md:rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-lg md:hover:shadow-xl hover:-translate-y-1">
+<div class="h-40 md:h-48 lg:h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Students working in a modern chemistry lab with microscopes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCD-TDQXGSMUCS0U7Y3oIKDAGpH6hZotuL9mtG_4RzGYDchswUZTY31OHMQmrhl6E0xCBrVrtQNAqPRvgeiQ6__aqaafvnwVibM8nWf9UfWIH5XNmHAxz9P8_hzgluLga08S-Q0wyHMbbBZ6eEUNzx5rEGwh4StCJCWsYZDWBXrnOTuKDoyeSAcR9g0oaLz0a2HQAHpy8Cp6-SAqNVsGY5NLKXhs2Qw26lLwcIHQfRi5RJpeTtKMVUI230kXzCgfPva_YunFaOMBYLE");'>
 </div>
-<div class="p-6 flex flex-col gap-3">
+<div class="p-4 md:p-6 flex flex-col gap-2 md:gap-3">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl">science</span>
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Science Labs</h3>
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">science</span>
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Science Labs</h3>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                             State-of-the-art physics, chemistry, and biology labs equipped for advanced research and hands-on experimentation.
                         </p>
-<hr class="my-2 border-[#e7edf3] dark:border-slate-800"/>
-<a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
-                            View Lab Facilities <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<hr class="my-1 md:my-2 border-[#e7edf3] dark:border-slate-800"/>
+<a class="text-primary font-bold text-xs md:text-sm flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-3 transition-all" href="#">
+                            View Lab Facilities <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
+
 <!-- Modern Library -->
-<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Modern library with tall bookshelves and comfortable seating" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlFs8KcBDUAMgCbAKnkD7uSDi7c12Pw1gBao4Pc6dLu6okcr63l22JoU5hS_l84_VpYPaioM7Jnhgi615QIBsiUL9dOOt0J-ZqGdDankt6psAyWTyEnG7KtIE6IeDsoYkBcTr1AesojX7EoSjH8aLa9CrPoaRgl4l3ApL6I8in19__bI4G_dzav9aS6CGLS0mFl42DWkPIYmdwXQcrrNRvCg1DLI2RTPZM681GM5DvfG8WBUNuBXTfzPeVRNaS5CULN1xvPxphfsCJ");'>
+<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-xl md:rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-lg md:hover:shadow-xl hover:-translate-y-1">
+<div class="h-40 md:h-48 lg:h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Modern library with tall bookshelves and comfortable seating" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlFs8KcBDUAMgCbAKnkD7uSDi7c12Pw1gBao4Pc6dLu6okcr63l22JoU5hS_l84_VpYPaioM7Jnhgi615QIBsiUL9dOOt0J-ZqGdDankt6psAyWTyEnG7KtIE6IeDsoYkBcTr1AesojX7EoSjH8aLa9CrPoaRgl4l3ApL6I8in19__bI4G_dzav9aS6CGLS0mFl42DWkPIYmdwXQcrrNRvCg1DLI2RTPZM681GM5DvfG8WBUNuBXTfzPeVRNaS5CULN1xvPxphfsCJ");'>
 </div>
-<div class="p-6 flex flex-col gap-3">
+<div class="p-4 md:p-6 flex flex-col gap-2 md:gap-3">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl">menu_book</span>
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Modern Library</h3>
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">menu_book</span>
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Modern Library</h3>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                             A vast collection of digital and print resources in a quiet, collaborative environment featuring specialized research zones.
                         </p>
-<hr class="my-2 border-[#e7edf3] dark:border-slate-800"/>
-<a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
-                            Explore Catalog <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<hr class="my-1 md:my-2 border-[#e7edf3] dark:border-slate-800"/>
+<a class="text-primary font-bold text-xs md:text-sm flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-3 transition-all" href="#">
+                            Explore Catalog <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
+
 <!-- Smart Classrooms -->
-<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Digital classroom with smart boards and tablet computers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlJLWfYITVARKuG8kOyWqM7n1Sj7FmfPSC95c5oJyoSgVa7QRvNIReQfKBrfTDhabKAUIz0ey8ZmJ1242iIDMvxowgLZwyPJ7d-ljA-IOntAfQgwMpIgRX2-QUKsmLK2W2GIlzzuoe9xph2ZlupxBwIwFb73trPPIkQPCmqxZUaVLV8SoW--5jJ_a-zAB3kUkJcV4A69TiBkXdpBPz7J9LSUU86XR4TQADu_6ZK4ByVsiVfoYilZPSmYUPL9qiQXpwIJa1b78feqdv");'>
+<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-xl md:rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-lg md:hover:shadow-xl hover:-translate-y-1">
+<div class="h-40 md:h-48 lg:h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Digital classroom with smart boards and tablet computers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlJLWfYITVARKuG8kOyWqM7n1Sj7FmfPSC95c5oJyoSgVa7QRvNIReQfKBrfTDhabKAUIz0ey8ZmJ1242iIDMvxowgLZwyPJ7d-ljA-IOntAfQgwMpIgRX2-QUKsmLK2W2GIlzzuoe9xph2ZlupxBwIwFb73trPPIkQPCmqxZUaVLV8SoW--5jJ_a-zAB3kUkJcV4A69TiBkXdpBPz7J9LSUU86XR4TQADu_6ZK4ByVsiVfoYilZPSmYUPL9qiQXpwIJa1b78feqdv");'>
 </div>
-<div class="p-6 flex flex-col gap-3">
+<div class="p-4 md:p-6 flex flex-col gap-2 md:gap-3">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl">devices</span>
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Smart Classrooms</h3>
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">devices</span>
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Smart Classrooms</h3>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                             Interactive learning spaces integrated with the latest educational technology including smart boards and personalized devices.
                         </p>
-<hr class="my-2 border-[#e7edf3] dark:border-slate-800"/>
-<a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
-                            Technology Overview <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<hr class="my-1 md:my-2 border-[#e7edf3] dark:border-slate-800"/>
+<a class="text-primary font-bold text-xs md:text-sm flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-3 transition-all" href="#">
+                            Technology Overview <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
+
 <!-- Sports Complex -->
-<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Indoor basketball court and olympic swimming pool" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjs0lebdb_SqaJlGOmuKxNAFf_QNesbJrcKAq-edQLn2oLYfz7FdnFLEIe6dyUli0R1pw8IQwHE0Gcj17aL7fuqTKy-MU6wcTO6t7T4ndFKOapb4fD-5Ydm4BAcqFdU6XlCAD4-N2hzKhGzFgoEFUw4goyxG4N2R1fFo4RzCMiXMN3OcY1pVgMcAzH2FnmcArPmHHo9ZU1rVgBuZj1n7uShKUsYq_vAV34THVq980TpjaoRLIXbZl7roPE1iWofwt2iPWl-FESIVTH");'>
+<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-xl md:rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-lg md:hover:shadow-xl hover:-translate-y-1">
+<div class="h-40 md:h-48 lg:h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Indoor basketball court and olympic swimming pool" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjs0lebdb_SqaJlGOmuKxNAFf_QNesbJrcKAq-edQLn2oLYfz7FdnFLEIe6dyUli0R1pw8IQwHE0Gcj17aL7fuqTKy-MU6wcTO6t7T4ndFKOapb4fD-5Ydm4BAcqFdU6XlCAD4-N2hzKhGzFgoEFUw4goyxG4N2R1fFo4RzCMiXMN3OcY1pVgMcAzH2FnmcArPmHHo9ZU1rVgBuZj1n7uShKUsYq_vAV34THVq980TpjaoRLIXbZl7roPE1iWofwt2iPWl-FESIVTH");'>
 </div>
-<div class="p-6 flex flex-col gap-3">
+<div class="p-4 md:p-6 flex flex-col gap-2 md:gap-3">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl">fitness_center</span>
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Sports Complex</h3>
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">fitness_center</span>
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Sports Complex</h3>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                             Olympic-sized pool, indoor gymnasiums, and professional-grade athletic fields for football, track, and tennis.
                         </p>
-<hr class="my-2 border-[#e7edf3] dark:border-slate-800"/>
-<a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
-                            Athletic Programs <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<hr class="my-1 md:my-2 border-[#e7edf3] dark:border-slate-800"/>
+<a class="text-primary font-bold text-xs md:text-sm flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-3 transition-all" href="#">
+                            Athletic Programs <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
+
 <!-- Transport Fleet -->
-<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Row of modern yellow school buses parked neatly" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD51yK6ljf8Df5fhcxd8zPIvER-i3mRzuXk22BBDCPWNaN2lDSky-0Lj6_DDFtKEYc_pVw8Be3JpVrSB_z5vhhnnarWEyZfC4rMWaB7yo9ESsgwB8c2Pm4Evwg3xv8quc5Go0974U3e3lVg5PTfkkAUBzy5sTsRnsRjClC5Os5FJ92XDCqt9U06ewNMd-NiIy4ZFntSqWN_I1IeV4TTbcF2gBSyJkqYBEQzWqgD9YmBfYEhuPfHXzUYrP6bzgnb34wO6EpdhyYXeJjI");'>
+<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-xl md:rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-lg md:hover:shadow-xl hover:-translate-y-1">
+<div class="h-40 md:h-48 lg:h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Row of modern yellow school buses parked neatly" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD51yK6ljf8Df5fhcxd8zPIvER-i3mRzuXk22BBDCPWNaN2lDSky-0Lj6_DDFtKEYc_pVw8Be3JpVrSB_z5vhhnnarWEyZfC4rMWaB7yo9ESsgwB8c2Pm4Evwg3xv8quc5Go0974U3e3lVg5PTfkkAUBzy5sTsRnsRjClC5Os5FJ92XDCqt9U06ewNMd-NiIy4ZFntSqWN_I1IeV4TTbcF2gBSyJkqYBEQzWqgD9YmBfYEhuPfHXzUYrP6bzgnb34wO6EpdhyYXeJjI");'>
 </div>
-<div class="p-6 flex flex-col gap-3">
+<div class="p-4 md:p-6 flex flex-col gap-2 md:gap-3">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl">directions_bus</span>
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Transport Fleet</h3>
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">directions_bus</span>
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Transport Fleet</h3>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                             Safe, air-conditioned, and GPS-tracked bus services covering all major city routes with dedicated safety attendants.
                         </p>
-<hr class="my-2 border-[#e7edf3] dark:border-slate-800"/>
-<a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
-                            Route Information <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<hr class="my-1 md:my-2 border-[#e7edf3] dark:border-slate-800"/>
+<a class="text-primary font-bold text-xs md:text-sm flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-3 transition-all" href="#">
+                            Route Information <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
+
 <!-- Cafeteria / Nutrition -->
-<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Modern clean cafeteria with wooden tables and healthy food" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfRn8NfvtvtqAh1AQGUrwSyuvpPfMUeBlpMNQu502TlZwAbbWMGJ8SN_u3xC8nahtAVIju4MSkp9mCrJGMBBePMH4D7JcTLx79ogs6bDt3dV3kNkoHaOGgK67GvUrc54gcyB4lGB0meuQdegakYMvXY3Ap0MPksIN3Wl-haLOoSYZoe0A2sGGjgOLbGboeHGg-an2u2lECLXJ9uWihj8h4Ad1JFUzjydXAWR9tSJpNyQi0NFRG4FhHjlR4001FnOw1jrw2gh8dF5xG");'>
+<div class="group flex flex-col bg-background-light dark:bg-slate-900 rounded-xl md:rounded-2xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 transition-all hover:shadow-lg md:hover:shadow-xl hover:-translate-y-1">
+<div class="h-40 md:h-48 lg:h-56 w-full bg-center bg-no-repeat bg-cover" data-alt="Modern clean cafeteria with wooden tables and healthy food" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfRn8NfvtvtqAh1AQGUrwSyuvpPfMUeBlpMNQu502TlZwAbbWMGJ8SN_u3xC8nahtAVIju4MSkp9mCrJGMBBePMH4D7JcTLx79ogs6bDt3dV3kNkoHaOGgK67GvUrc54gcyB4lGB0meuQdegakYMvXY3Ap0MPksIN3Wl-haLOoSYZoe0A2sGGjgOLbGboeHGg-an2u2lECLXJ9uWihj8h4Ad1JFUzjydXAWR9tSJpNyQi0NFRG4FhHjlR4001FnOw1jrw2gh8dF5xG");'>
 </div>
-<div class="p-6 flex flex-col gap-3">
+<div class="p-4 md:p-6 flex flex-col gap-2 md:gap-3">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl">restaurant</span>
-<h3 class="text-xl font-bold text-[#0d141b] dark:text-white">Nutrition Center</h3>
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">restaurant</span>
+<h3 class="text-lg md:text-xl font-bold text-[#0d141b] dark:text-white">Nutrition Center</h3>
 </div>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                             Serving fresh, balanced meals prepared by professional chefs in a hygienic, contemporary dining environment.
                         </p>
-<hr class="my-2 border-[#e7edf3] dark:border-slate-800"/>
-<a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
-                            Weekly Menu <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<hr class="my-1 md:my-2 border-[#e7edf3] dark:border-slate-800"/>
+<a class="text-primary font-bold text-xs md:text-sm flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-3 transition-all" href="#">
+                            Weekly Menu <span class="material-symbols-outlined text-xs md:text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
 </div>
 </section>
+
 <!-- CTA Section -->
-<section class="px-4 md:px-10 lg:px-40 py-20 bg-primary/5 dark:bg-primary/10">
-<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
-<div class="flex flex-col gap-4">
-<h2 class="text-3xl md:text-5xl font-black text-[#0d141b] dark:text-white leading-tight">
+<section class="px-4 md:px-10 py-8 md:py-12 lg:py-20 bg-primary/5 dark:bg-primary/10">
+<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 md:gap-8">
+<div class="flex flex-col gap-3 md:gap-4">
+<h2 class="text-xl md:text-2xl lg:text-3xl xl:text-5xl font-black text-[#0d141b] dark:text-white leading-tight">
                         Experience Our Campus in Person
                     </h2>
-<p class="text-lg text-[#4c739a] dark:text-slate-400 max-w-2xl mx-auto">
+<p class="text-base md:text-lg text-[#4c739a] dark:text-slate-400 max-w-2xl mx-auto">
                         Book a guided tour to see our world-class facilities first-hand, meet our expert faculty, and feel the vibrant school culture.
                     </p>
 </div>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all">
+<div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+<button class="bg-primary text-white px-6 md:px-8 lg:px-10 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base lg:text-lg hover:bg-primary/90 transition-all whitespace-nowrap">
                         Schedule a Tour
                     </button>
-<button class="bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all">
+<button class="bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 px-6 md:px-8 lg:px-10 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base lg:text-lg hover:bg-slate-50 transition-all whitespace-nowrap">
                         Request Brochure
                     </button>
 </div>
-<div class="mt-8 flex items-center gap-6">
-<div class="flex -space-x-4">
-<div class="w-12 h-12 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Student profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIQudruGsOuoktEWEez6RBqvZKSIAfORuq6ba0IpSLV9_J8vWV-ZhUVlNj0ywL46bm9nuRAlCaHoJd5lPhAOzmkNHanLNrp15HuH6XO6JFXEX0mSdB3IWLpFPkSFnUNfAzXJ2Gwwx3mwxQsNrEXYjI8GaauDLrLKK78BGF4w6hS823z6ArbSq0IPpBDJjlwBAuO1f5t325ukBDR4J8WXKcBAF4H_RGO_4dxGpBj9DdZRnMXoH4DIulv9kE3rkweDF3mFhmhVgHUGxa")'></div>
-<div class="w-12 h-12 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Parent profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-5lhugxvgbuoyK_qae-BG444cEMS-nhPT7COn1U16b5-BKcPqAyppTtIzzUy4rcrciKOGXp0gMgQxPtfBbOxyz6EyfEch6fjNdq5NckZ-T9w9V_-CjpMcrDwc_v1kKYjvzigXL3d6_R53sU5h1A9Zc0Fp-P8iu91pUOBuRryEHitQWiegYy-983mTzflrYdIXDFxRmTWd1jCSO75VHxmyTqFJhU4TlClsM2-DnDlzYlL2SYKc99sb2x6fIR5kMoht5LcMFIqDX35T")'></div>
-<div class="w-12 h-12 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Teacher profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRCFaLeqsgCpzdVuKEih3WNQr9R09B-DLIB-OKMevRpwei6Oj57aVeZgd8_mPUkrWsK-uZu151TneXI0-7IB03mCGmkNn7OE5WcklrTU6mhDL0kW9RQfO5hTv0D1wA6lKKtU_RGFqyCIqL9ZmgIfx1F3mY4dfueHUjGTDWPYkvrQ8368wZWvnunrlLedEe9myMDuMNDV3s_PwvpdnieJTKwuy08ZL3sjHVkLmZ3X6yzwlgSpdzIa0efAy8KB4neD1mi1FAV-KNGiyY")'></div>
-<div class="w-12 h-12 rounded-full border-2 border-white bg-primary flex items-center justify-center text-white text-xs font-bold">+5k</div>
+<div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-4 md:gap-6">
+<div class="flex -space-x-3 md:-space-x-4">
+<div class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Student profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIQudruGsOuoktEWEez6RBqvZKSIAfORuq6ba0IpSLV9_J8vWV-ZhUVlNj0ywL46bm9nuRAlCaHoJd5lPhAOzmkNHanLNrp15HuH6XO6JFXEX0mSdB3IWLpFPkSFnUNfAzXJ2Gwwx3mwxQsNrEXYjI8GaauDLrLKK78BGF4w6hS823z6ArbSq0IPpBDJjlwBAuO1f5t325ukBDR4J8WXKcBAF4H_RGO_4dxGpBj9DdZRnMXoH4DIulv9kE3rkweDF3mFhmhVgHUGxa")'></div>
+<div class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Parent profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-5lhugxvgbuoyK_qae-BG444cEMS-nhPT7COn1U16b5-BKcPqAyppTtIzzUy4rcrciKOGXp0gMgQxPtfBbOxyz6EyfEch6fjNdq5NckZ-T9w9V_-CjpMcrDwc_v1kKYjvzigXL3d6_R53sU5h1A9Zc0Fp-P8iu91pUOBuRryEHitQWiegYy-983mTzflrYdIXDFxRmTWd1jCSO75VHxmyTqFJhU4TlClsM2-DnDlzYlL2SYKc99sb2x6fIR5kMoht5LcMFIqDX35T")'></div>
+<div class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Teacher profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRCFaLeqsgCpzdVuKEih3WNQr9R09B-DLIB-OKMevRpwei6Oj57aVeZgd8_mPUkrWsK-uZu151TneXI0-7IB03mCGmkNn7OE5WcklrTU6mhDL0kW9RQfO5hTv0D1wA6lKKtU_RGFqyCIqL9ZmgIfx1F3mY4dfueHUjGTDWPYkvrQ8368wZWvnunrlLedEe9myMDuMNDV3s_PwvpdnieJTKwuy08ZL3sjHVkLmZ3X6yzwlgSpdzIa0efAy8KB4neD1mi1FAV-KNGiyY")'></div>
+<div class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white bg-primary flex items-center justify-center text-white text-xs font-bold">+5k</div>
 </div>
-<p class="text-sm font-medium text-[#4c739a] dark:text-slate-400">Join 5,000+ families who visited last year</p>
+<p class="text-xs md:text-sm font-medium text-[#4c739a] dark:text-slate-400">Join 5,000+ families who visited last year</p>
 </div>
 </div>
 </section>
 </main>
+</div>
+
 <!-- Footer -->
-<footer class="bg-white dark:bg-background-dark border-t border-[#e7edf3] dark:border-slate-800 px-4 md:px-10 lg:px-40 py-12">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-<div class="flex flex-col gap-6">
-<div class="flex items-center gap-4 text-[#0d141b] dark:text-slate-50">
-<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
-<span class="material-symbols-outlined">school</span>
+<footer class="bg-white dark:bg-background-dark border-t border-[#e7edf3] dark:border-slate-800 px-4 md:px-10 py-8 md:py-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+<div class="flex flex-col gap-4 md:gap-6">
+<div class="flex items-center gap-3 md:gap-4 text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
 </div>
-<h2 class="text-lg font-bold">Campus Link</h2>
+<h2 class="text-base md:text-lg font-bold text-[#0d141b] dark:text-slate-50">Campus Link</h2>
 </div>
-<p class="text-sm text-[#4c739a] dark:text-slate-400 leading-relaxed">
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400 leading-relaxed">
                     Nurturing excellence through innovative teaching and world-class facilities. Join us in shaping the leaders of tomorrow.
                 </p>
-<div class="flex gap-4">
+<div class="flex gap-3 md:gap-4">
 <a class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">public</span>
+<span class="material-symbols-outlined text-base md:text-lg">public</span>
 </a>
 <a class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">mail</span>
+<span class="material-symbols-outlined text-base md:text-lg">mail</span>
 </a>
 <a class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">call</span>
+<span class="material-symbols-outlined text-base md:text-lg">call</span>
 </a>
 </div>
 </div>
 <div>
-<h4 class="font-bold mb-6">Quick Links</h4>
-<ul class="flex flex-col gap-4 text-sm text-[#4c739a] dark:text-slate-400">
+<h4 class="font-bold mb-4 md:mb-6 text-base md:text-lg">Quick Links</h4>
+<ul class="flex flex-col gap-2 md:gap-4 text-xs md:text-sm text-[#4c739a] dark:text-slate-400">
 <li><a class="hover:text-primary transition-colors" href="#">About Our Academy</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Curriculum Details</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Student Resources</a></li>
@@ -306,31 +390,62 @@
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-6">Contact</h4>
-<ul class="flex flex-col gap-4 text-sm text-[#4c739a] dark:text-slate-400">
-<li class="flex gap-2"><span class="material-symbols-outlined text-sm">location_on</span> 123 Education Lane, Academic District</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-sm">mail</span> admissions@campuslink.edu</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-sm">phone</span> +1 (555) 012-3456</li>
+<h4 class="font-bold mb-4 md:mb-6 text-base md:text-lg">Contact</h4>
+<ul class="flex flex-col gap-2 md:gap-4 text-xs md:text-sm text-[#4c739a] dark:text-slate-400">
+<li class="flex gap-2 items-start"><span class="material-symbols-outlined text-sm">location_on</span> <span>123 Education Lane, Academic District</span></li>
+<li class="flex gap-2 items-center"><span class="material-symbols-outlined text-sm">mail</span> <span>admissions@campuslink.edu</span></li>
+<li class="flex gap-2 items-center"><span class="material-symbols-outlined text-sm">phone</span> <span>+1 (555) 012-3456</span></li>
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-6">Newsletter</h4>
-<p class="text-sm text-[#4c739a] dark:text-slate-400 mb-4">Stay updated with our latest news and events.</p>
+<h4 class="font-bold mb-4 md:mb-6 text-base md:text-lg">Newsletter</h4>
+<p class="text-xs md:text-sm text-[#4c739a] dark:text-slate-400 mb-3 md:mb-4">Stay updated with our latest news and events.</p>
 <div class="flex">
-<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-l-lg text-sm px-4 focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
-<button class="bg-primary text-white p-2 rounded-r-lg">
-<span class="material-symbols-outlined">send</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-l-lg text-xs md:text-sm px-3 md:px-4 focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 md:p-3 rounded-r-lg">
+<span class="material-symbols-outlined text-base md:text-lg">send</span>
 </button>
 </div>
 </div>
 </div>
-<div class="mt-12 pt-8 border-t border-[#e7edf3] dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#4c739a]">
-<p>© 2024 Campus Link Academy. All rights reserved.</p>
-<div class="flex gap-6">
+<div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-[#e7edf3] dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-xs text-[#4c739a]">
+<p>© 2026 Campus Link Academy. All rights reserved.</p>
+<div class="flex gap-4 md:gap-6">
 <a class="hover:underline" href="#">Privacy Policy</a>
 <a class="hover:underline" href="#">Terms of Service</a>
 <a class="hover:underline" href="#">Cookie Policy</a>
 </div>
 </div>
 </footer>
+
+<script>
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.add('sidebar-active');
+        sidebarOverlay.classList.remove('hidden');
+    });
+
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    // Close sidebar on window resize if it becomes desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('sidebar-active');
+            sidebarOverlay.classList.add('hidden');
+        }
+    });
+</script>
 </body></html>
