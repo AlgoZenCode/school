@@ -38,66 +38,134 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        @media (max-width: 1024px) {
+            .sidebar-active {
+                transform: translateX(0) !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-50 transition-colors duration-200">
-<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-<!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-solid border-[#e7edf3] dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 lg:px-40 py-3">
-<div class="flex items-center justify-between whitespace-nowrap max-w-[1280px] mx-auto">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-4 text-primary">
+<!-- Sidebar -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
+<aside id="sidebar" class="fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-background-dark border-r border-[#e7edf3] dark:border-slate-800 transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:w-64 transition-transform duration-300 overflow-y-auto">
+<div class="p-6">
+<div class="flex items-center gap-3 text-primary mb-8">
 <div class="size-8">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">St. Academix School</h2>
+<h3 class="text-[#0d141b] dark:text-white font-bold">Menu</h3>
+<button id="sidebar-close" class="ml-auto lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined">close</span>
+</button>
 </div>
-<nav class="hidden xl:flex items-center gap-8">
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Home</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About</a>
-<a class="text-primary text-sm font-bold leading-normal" href="#">Admissions</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Academics</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">News</a>
-<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Contact</a>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span>About</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-primary font-bold transition-colors" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span>Admissions</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Academics</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span>Achievement</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Faculty</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span>Facilities</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span>Gallery</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notice Board</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#e7edf3] dark:hover:bg-slate-800 text-[#4c739a] dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span>Contact</span>
+</a>
 </nav>
 </div>
-<div class="flex items-center gap-4">
-<div class="hidden md:flex items-center bg-[#e7edf3] dark:bg-slate-800 rounded-lg px-3 py-1.5">
-<span class="material-symbols-outlined text-[#4c739a] text-xl">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-sm w-32 xl:w-48 placeholder:text-[#4c739a]" placeholder="Search admissions"/>
+</aside>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden lg:ml-64">
+<!-- Navigation -->
+<header class="sticky top-0 z-40 w-full border-b border-solid border-[#e7edf3] dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 lg:px-6 xl:px-40 py-3">
+<div class="flex items-center justify-between whitespace-nowrap max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4 md:gap-8">
+<button id="sidebar-toggle" class="lg:hidden text-[#0d141b] dark:text-slate-200">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<div class="flex items-center gap-3 md:gap-4 text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
 </div>
-<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90">
+<h2 class="text-[#0d141b] dark:text-white text-base md:text-lg font-bold leading-tight tracking-tight">St. Academix School</h2>
+</div>
+<nav class="hidden xl:flex items-center gap-6 md:gap-8">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">Home</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">About</a>
+<a class="text-primary text-sm font-bold leading-normal" href="#">Admissions</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">Academics</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">News</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors text-[#4c739a] dark:text-slate-400" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-3 md:gap-4">
+<div class="hidden md:flex items-center bg-[#e7edf3] dark:bg-slate-800 rounded-lg px-3 py-1.5">
+<span class="material-symbols-outlined text-[#4c739a] text-lg md:text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-24 md:w-32 xl:w-48 placeholder:text-[#4c739a]" placeholder="Search admissions"/>
+</div>
+<button class="flex min-w-[90px] md:min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-3 md:px-5 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90 whitespace-nowrap">
                         Apply Online
                     </button>
 </div>
 </div>
 </header>
 <main class="flex-1">
-<div class="max-w-[1024px] mx-auto px-4 py-8 lg:py-12">
+<div class="max-w-[1024px] mx-auto px-4 py-6 md:py-8 lg:py-12">
 <!-- Hero Section -->
-<section class="mb-16">
-<div class="flex flex-col gap-8 lg:flex-row lg:items-center">
+<section class="mb-10 md:mb-16">
+<div class="flex flex-col gap-6 md:gap-8 lg:flex-row lg:items-center">
 <div class="w-full lg:w-1/2 aspect-video bg-center bg-no-repeat bg-cover rounded-xl shadow-lg" data-alt="Modern high school building campus view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4dH63WEYv7WTR12_wjkCNTj-TIyAhbtLoVDoT_bwHG-MZu0Mj-mfitLXEZgil7hxROsJxU3xMpuXwEiO_1yP5nTR3wEOTVW03g5wiWyKZ6WZEq6MTMK8JuEqYejLQFSWmrVOqspURC2-0IgL2wAIGMNF8IWIN3sSpZLfOtKRAlBBYfNMsUht_SgfDboFH1lz7i51fB0-W36QaCKdFlfhz5khz-aAyO-NQ7q4wvVquMt9LBnA3DT8SBf6Myjlukt4_o9i1PaW1BmGW");'>
 </div>
-<div class="flex flex-col gap-6 lg:w-1/2">
+<div class="flex flex-col gap-4 md:gap-6 lg:w-1/2">
 <div class="flex flex-col gap-2">
 <span class="text-primary font-bold tracking-widest uppercase text-xs">Join our community</span>
-<h1 class="text-[#0d141b] dark:text-white text-4xl lg:text-5xl font-black leading-tight tracking-tight">
+<h1 class="text-[#0d141b] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
                                     Admissions 2024-25
                                 </h1>
-<p class="text-[#4c739a] dark:text-slate-400 text-lg leading-relaxed max-w-lg">
+<p class="text-[#4c739a] dark:text-slate-400 text-base md:text-lg leading-relaxed max-w-lg">
                                     Unlock your child's potential with a curriculum focused on innovation, character, and global citizenship.
                                 </p>
 </div>
-<div class="flex flex-wrap gap-4">
-<button class="flex items-center gap-2 min-w-[140px] cursor-pointer justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold shadow-md hover:scale-[1.02] transition-transform">
-<span class="material-symbols-outlined">edit_note</span>
+<div class="flex flex-wrap gap-3 md:gap-4">
+<button class="flex items-center gap-2 min-w-[120px] md:min-w-[140px] cursor-pointer justify-center rounded-lg h-10 md:h-12 px-4 md:px-6 bg-primary text-white text-sm md:text-base font-bold shadow-md hover:scale-[1.02] transition-transform whitespace-nowrap">
+<span class="material-symbols-outlined text-sm md:text-base">edit_note</span>
                                     Apply Online
                                 </button>
-<button class="flex items-center gap-2 min-w-[140px] cursor-pointer justify-center rounded-lg h-12 px-6 bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 text-[#0d141b] dark:text-white text-base font-bold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-<span class="material-symbols-outlined">download</span>
+<button class="flex items-center gap-2 min-w-[120px] md:min-w-[140px] cursor-pointer justify-center rounded-lg h-10 md:h-12 px-4 md:px-6 bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 text-[#0d141b] dark:text-white text-sm md:text-base font-bold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm md:text-base">download</span>
                                     Prospectus
                                 </button>
 </div>
@@ -105,150 +173,151 @@
 </div>
 </section>
 <!-- 1-2-3 Admissions Process -->
-<section class="mb-20">
-<div class="mb-8">
-<h2 class="text-[#0d141b] dark:text-white text-2xl lg:text-3xl font-bold tracking-tight">Admissions Process</h2>
-<div class="h-1 w-20 bg-primary mt-2 rounded-full"></div>
+<section class="mb-12 md:mb-20">
+<div class="mb-6 md:mb-8">
+<h2 class="text-[#0d141b] dark:text-white text-xl md:text-2xl lg:text-3xl font-bold tracking-tight">Admissions Process</h2>
+<div class="h-1 w-16 md:w-20 bg-primary mt-2 rounded-full"></div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 relative">
 <!-- Step 1 -->
-<div class="flex flex-col gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-800 relative z-10">
-<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl">1</div>
+<div class="flex flex-col gap-3 md:gap-4 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-800 relative z-10">
+<div class="size-10 md:size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg md:text-xl">1</div>
 <div class="flex flex-col gap-2">
-<h3 class="text-lg font-bold">Inquiry &amp; Tour</h3>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<h3 class="text-base md:text-lg font-bold">Inquiry &amp; Tour</h3>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                                     Start by submitting an inquiry. Visit our state-of-the-art campus or schedule a virtual tour with our admissions officers.
                                 </p>
 </div>
-<div class="mt-auto pt-4 flex items-center gap-2 text-primary text-sm font-semibold cursor-pointer group">
-                                Book a Tour <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<div class="mt-auto pt-3 md:pt-4 flex items-center gap-2 text-primary text-xs md:text-sm font-semibold cursor-pointer group">
+                                Book a Tour <span class="material-symbols-outlined text-xs md:text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </div>
 <!-- Step 2 -->
-<div class="flex flex-col gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-800 relative z-10">
-<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl">2</div>
+<div class="flex flex-col gap-3 md:gap-4 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-800 relative z-10">
+<div class="size-10 md:size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg md:text-xl">2</div>
 <div class="flex flex-col gap-2">
-<h3 class="text-lg font-bold">Application Submission</h3>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<h3 class="text-base md:text-lg font-bold">Application Submission</h3>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                                     Complete the digital application form. Upload required documents and pay the non-refundable registration fee via our secure portal.
                                 </p>
 </div>
-<div class="mt-auto pt-4 flex items-center gap-2 text-primary text-sm font-semibold cursor-pointer group">
-                                Start Application <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<div class="mt-auto pt-3 md:pt-4 flex items-center gap-2 text-primary text-xs md:text-sm font-semibold cursor-pointer group">
+                                Start Application <span class="material-symbols-outlined text-xs md:text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </div>
 <!-- Step 3 -->
-<div class="flex flex-col gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-800 relative z-10">
-<div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl">3</div>
+<div class="flex flex-col gap-3 md:gap-4 p-4 md:p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#e7edf3] dark:border-slate-800 relative z-10">
+<div class="size-10 md:size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg md:text-xl">3</div>
 <div class="flex flex-col gap-2">
-<h3 class="text-lg font-bold">Assessment &amp; Interview</h3>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm leading-relaxed">
+<h3 class="text-base md:text-lg font-bold">Assessment &amp; Interview</h3>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm leading-relaxed">
                                     Eligible candidates will be invited for an age-appropriate assessment and a family interaction with the Principal.
                                 </p>
 </div>
-<div class="mt-auto pt-4 flex items-center gap-2 text-primary text-sm font-semibold cursor-pointer group">
-                                Preparation Guide <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<div class="mt-auto pt-3 md:pt-4 flex items-center gap-2 text-primary text-xs md:text-sm font-semibold cursor-pointer group">
+                                Preparation Guide <span class="material-symbols-outlined text-xs md:text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </div>
 </div>
 </section>
 <!-- Two Column Details Section -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16">
 <!-- Fee Structure (Left Column) -->
 <div class="lg:col-span-8">
-<div class="mb-6">
-<h2 class="text-[#0d141b] dark:text-white text-2xl font-bold tracking-tight">Fee Structure (2024-25)</h2>
-<p class="text-[#4c739a] dark:text-slate-400 text-sm">All fees are quoted in USD per academic year.</p>
+<div class="mb-4 md:mb-6">
+<h2 class="text-[#0d141b] dark:text-white text-xl md:text-2xl font-bold tracking-tight">Fee Structure (2024-25)</h2>
+<p class="text-[#4c739a] dark:text-slate-400 text-xs md:text-sm">All fees are quoted in USD per academic year.</p>
 </div>
 <div class="overflow-hidden rounded-xl border border-[#e7edf3] dark:border-slate-800 shadow-sm">
-<table class="w-full text-left text-sm lg:text-base border-collapse">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm lg:text-base border-collapse min-w-[500px]">
 <thead>
 <tr class="bg-primary text-white">
-<th class="py-4 px-6 font-semibold">Grade Level</th>
-<th class="py-4 px-6 font-semibold text-right">Tuition Fee</th>
-<th class="py-4 px-6 font-semibold text-right">Activity Fee</th>
-<th class="py-4 px-6 font-semibold text-right">Total</th>
+<th class="py-3 md:py-4 px-4 md:px-6 font-semibold text-xs md:text-sm">Grade Level</th>
+<th class="py-3 md:py-4 px-4 md:px-6 font-semibold text-right text-xs md:text-sm">Tuition Fee</th>
+<th class="py-3 md:py-4 px-4 md:px-6 font-semibold text-right text-xs md:text-sm">Activity Fee</th>
+<th class="py-3 md:py-4 px-4 md:px-6 font-semibold text-right text-xs md:text-sm">Total</th>
 </tr>
 </thead>
 <tbody class="bg-white dark:bg-slate-900">
 <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-<td class="py-4 px-6 font-medium">Pre-Primary</td>
-<td class="py-4 px-6 text-right">$4,500</td>
-<td class="py-4 px-6 text-right">$500</td>
-<td class="py-4 px-6 text-right font-bold text-primary">$5,000</td>
+<td class="py-3 md:py-4 px-4 md:px-6 font-medium text-xs md:text-sm">Pre-Primary</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$4,500</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$500</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right font-bold text-primary text-xs md:text-sm">$5,000</td>
 </tr>
 <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-<td class="py-4 px-6 font-medium">Grade 1 - 5</td>
-<td class="py-4 px-6 text-right">$6,200</td>
-<td class="py-4 px-6 text-right">$800</td>
-<td class="py-4 px-6 text-right font-bold text-primary">$7,000</td>
+<td class="py-3 md:py-4 px-4 md:px-6 font-medium text-xs md:text-sm">Grade 1 - 5</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$6,200</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$800</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right font-bold text-primary text-xs md:text-sm">$7,000</td>
 </tr>
 <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
-<td class="py-4 px-6 font-medium">Grade 6 - 8</td>
-<td class="py-4 px-6 text-right">$7,800</td>
-<td class="py-4 px-6 text-right">$1,200</td>
-<td class="py-4 px-6 text-right font-bold text-primary">$9,000</td>
+<td class="py-3 md:py-4 px-4 md:px-6 font-medium text-xs md:text-sm">Grade 6 - 8</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$7,800</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$1,200</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right font-bold text-primary text-xs md:text-sm">$9,000</td>
 </tr>
 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-<td class="py-4 px-6 font-medium">Grade 9 - 12</td>
-<td class="py-4 px-6 text-right">$10,500</td>
-<td class="py-4 px-6 text-right">$1,500</td>
-<td class="py-4 px-6 text-right font-bold text-primary">$12,000</td>
+<td class="py-3 md:py-4 px-4 md:px-6 font-medium text-xs md:text-sm">Grade 9 - 12</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$10,500</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right text-xs md:text-sm">$1,500</td>
+<td class="py-3 md:py-4 px-4 md:px-6 text-right font-bold text-primary text-xs md:text-sm">$12,000</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p class="mt-4 text-xs text-[#4c739a] dark:text-slate-500 italic">
+<p class="mt-3 md:mt-4 text-xs text-[#4c739a] dark:text-slate-500 italic">
                             * Note: Transport and meal services are billed separately based on usage. Early bird discounts available for full payment before May 2024.
                         </p>
 </div>
 <!-- Required Documents (Right Column) -->
 <div class="lg:col-span-4">
-<div class="bg-primary/5 dark:bg-slate-900 p-8 rounded-xl border border-primary/20 dark:border-slate-800">
-<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">description</span>
+<div class="bg-primary/5 dark:bg-slate-900 p-4 md:p-6 lg:p-8 rounded-xl border border-primary/20 dark:border-slate-800">
+<h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base md:text-lg">description</span>
                                 Required Documents
                             </h3>
-<ul class="flex flex-col gap-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<ul class="flex flex-col gap-3 md:gap-4">
+<li class="flex items-start gap-2 md:gap-3">
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">check_circle</span>
 <div>
-<p class="font-semibold text-sm">Proof of Age</p>
+<p class="font-semibold text-xs md:text-sm">Proof of Age</p>
 <p class="text-xs text-[#4c739a]">Birth Certificate or Passport copy.</p>
 </div>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<li class="flex items-start gap-2 md:gap-3">
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">check_circle</span>
 <div>
-<p class="font-semibold text-sm">Academic Records</p>
+<p class="font-semibold text-xs md:text-sm">Academic Records</p>
 <p class="text-xs text-[#4c739a]">Last 2 years' report cards (Grade 2+).</p>
 </div>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<li class="flex items-start gap-2 md:gap-3">
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">check_circle</span>
 <div>
-<p class="font-semibold text-sm">Passport Photos</p>
+<p class="font-semibold text-xs md:text-sm">Passport Photos</p>
 <p class="text-xs text-[#4c739a]">4 recent colored photographs of the child.</p>
 </div>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<li class="flex items-start gap-2 md:gap-3">
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">check_circle</span>
 <div>
-<p class="font-semibold text-sm">Medical History</p>
+<p class="font-semibold text-xs md:text-sm">Medical History</p>
 <p class="text-xs text-[#4c739a]">Immunization record and blood group report.</p>
 </div>
 </li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<li class="flex items-start gap-2 md:gap-3">
+<span class="material-symbols-outlined text-primary text-lg md:text-xl">check_circle</span>
 <div>
-<p class="font-semibold text-sm">Transfer Certificate</p>
+<p class="font-semibold text-xs md:text-sm">Transfer Certificate</p>
 <p class="text-xs text-[#4c739a]">Required from the previous school (if applicable).</p>
 </div>
 </li>
 </ul>
-<div class="mt-8">
-<button class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-lg">upload_file</span>
+<div class="mt-6 md:mt-8">
+<button class="w-full py-2 md:py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
+<span class="material-symbols-outlined text-base md:text-lg">upload_file</span>
                                     Submit Docs Online
                                 </button>
 </div>
@@ -256,37 +325,37 @@
 </div>
 </div>
 <!-- Bottom CTA -->
-<section class="bg-[#0d141b] text-white rounded-2xl p-8 lg:p-12 text-center relative overflow-hidden">
+<section class="bg-[#0d141b] text-white rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-center relative overflow-hidden">
 <div class="absolute inset-0 opacity-10" data-alt="Abstract geometric tech background" style="background-image: radial-gradient(#137fec 1px, transparent 1px); background-size: 20px 20px;"></div>
 <div class="relative z-10">
-<h2 class="text-3xl lg:text-4xl font-black mb-4">Ready to start the journey?</h2>
-<p class="text-slate-400 max-w-2xl mx-auto mb-8 text-lg">
+<h2 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black mb-3 md:mb-4">Ready to start the journey?</h2>
+<p class="text-slate-400 max-w-2xl mx-auto mb-6 md:mb-8 text-sm md:text-base lg:text-lg">
                             Join over 500 families who have chosen St. Academix for a brighter future. Our admissions team is ready to assist you.
                         </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-<button class="px-8 py-4 bg-primary rounded-lg font-bold text-lg hover:scale-105 transition-transform">Apply Online Now</button>
-<button class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-bold text-lg transition-colors">Speak to an Advisor</button>
+<div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+<button class="px-4 md:px-6 lg:px-8 py-2 md:py-3 lg:py-4 bg-primary rounded-lg font-bold text-sm md:text-base lg:text-lg hover:scale-105 transition-transform whitespace-nowrap">Apply Online Now</button>
+<button class="px-4 md:px-6 lg:px-8 py-2 md:py-3 lg:py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-bold text-sm md:text-base lg:text-lg transition-colors whitespace-nowrap">Speak to an Advisor</button>
 </div>
 </div>
 </section>
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-white dark:bg-slate-900 border-t border-[#e7edf3] dark:border-slate-800 pt-12 pb-6">
+<footer class="bg-white dark:bg-slate-900 border-t border-[#e7edf3] dark:border-slate-800 pt-8 md:pt-12 pb-4 md:pb-6">
 <div class="max-w-[1024px] mx-auto px-4">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
 <div class="col-span-1 md:col-span-1">
-<div class="flex items-center gap-2 text-primary font-bold text-xl mb-4">
-<span class="material-symbols-outlined">school</span>
+<div class="flex items-center gap-2 text-primary font-bold text-lg md:text-xl mb-3 md:mb-4">
+<span class="material-symbols-outlined text-base md:text-lg">school</span>
                             St. Academix
                         </div>
-<p class="text-[#4c739a] text-sm leading-relaxed">
+<p class="text-[#4c739a] text-xs md:text-sm leading-relaxed">
                             Shaping tomorrow's leaders through excellence in education and character development since 1995.
                         </p>
 </div>
 <div>
-<h4 class="font-bold mb-4">Quick Links</h4>
-<ul class="text-sm space-y-2 text-[#4c739a]">
+<h4 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Quick Links</h4>
+<ul class="text-xs md:text-sm space-y-1 md:space-y-2 text-[#4c739a]">
 <li><a class="hover:text-primary transition-colors" href="#">Curriculum</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">School Calendar</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Scholarships</a></li>
@@ -294,8 +363,8 @@
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-4">Admissions</h4>
-<ul class="text-sm space-y-2 text-[#4c739a]">
+<h4 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Admissions</h4>
+<ul class="text-xs md:text-sm space-y-1 md:space-y-2 text-[#4c739a]">
 <li><a class="hover:text-primary transition-colors" href="#">Process</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Fee Structure</a></li>
 <li><a class="hover:text-primary transition-colors" href="#">Apply Online</a></li>
@@ -303,26 +372,26 @@
 </ul>
 </div>
 <div>
-<h4 class="font-bold mb-4">Contact</h4>
-<ul class="text-sm space-y-2 text-[#4c739a]">
+<h4 class="font-bold mb-3 md:mb-4 text-base md:text-lg">Contact</h4>
+<ul class="text-xs md:text-sm space-y-1 md:space-y-2 text-[#4c739a]">
 <li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">mail</span>
+<span class="material-symbols-outlined text-xs">mail</span>
                                 admissions@stacademix.edu
                             </li>
 <li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">call</span>
+<span class="material-symbols-outlined text-xs">call</span>
                                 +1 (555) 123-4567
                             </li>
 <li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="material-symbols-outlined text-xs">location_on</span>
                                 123 Education Way, Tech City
                             </li>
 </ul>
 </div>
 </div>
-<div class="border-t border-[#e7edf3] dark:border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#4c739a]">
-<p>© 2024 St. Academix School. All rights reserved.</p>
-<div class="flex gap-6">
+<div class="border-t border-[#e7edf3] dark:border-slate-800 pt-4 md:pt-6 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-xs text-[#4c739a]">
+<p>© 2026 St. Academix School. All rights reserved.</p>
+<div class="flex gap-4 md:gap-6">
 <a class="hover:text-primary" href="#">Privacy Policy</a>
 <a class="hover:text-primary" href="#">Terms of Service</a>
 <a class="hover:text-primary" href="#">Accessibility</a>
@@ -331,4 +400,35 @@
 </div>
 </footer>
 </div>
+
+<script>
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.add('sidebar-active');
+        sidebarOverlay.classList.remove('hidden');
+    });
+
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('sidebar-active');
+        sidebarOverlay.classList.add('hidden');
+    });
+
+    // Close sidebar on window resize if it becomes desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('sidebar-active');
+            sidebarOverlay.classList.add('hidden');
+        }
+    });
+</script>
 </body></html>
